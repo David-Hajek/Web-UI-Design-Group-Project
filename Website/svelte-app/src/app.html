@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"> <!-- Root HTML element with language set to English -->
+	<head>
+		<!-- Defines character encoding to support various languages and special characters -->
+		<meta charset="utf-8" />
+		<!-- Ensures the webpage is responsive on all devices by controlling the viewport scaling -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- SEO Meta Tags -->
+		<meta name="author" content="David Hájek" />
+		<meta name="description" content="A modern SvelteKit web application for UI design." />
+		<meta name="keywords" content="SvelteKit, UI Design, Frontend Development, Web App" />
+
+		<!-- Sets the website favicon dynamically using SvelteKit's assets system -->
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<!-- Links to a global CSS file for consistent styling across all pages -->
+		<link rel="stylesheet" href="%sveltekit.assets%/styles/global.css" />
+
+
+		<!-- Default Website Title (Can be overridden in pages) -->
+		<title>Tymek purgatory</title>
+
+		<!-- SvelteKit Injected Head Content (Allows pages to override title) -->
+		%sveltekit.head%
+	</head>
+
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
