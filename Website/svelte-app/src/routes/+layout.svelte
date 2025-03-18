@@ -10,7 +10,7 @@
 </script>
 
 
-<link rel="stylesheet" href="/styles/global.css" />
+
 
 <!-- Header -->
 <header>
@@ -55,7 +55,14 @@
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2025 My Svelte App. All rights reserved.</p>
+    <ul>
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        <li>
+            <a href="/contact">CONTACT</a>
+        </li>
+    </ul>
 </footer>
 
 <style>
@@ -121,6 +128,31 @@
         transform: translateY(-2px);
     }
 
+
+    footer ul {
+        left: 50%;
+        list-style: none;
+        padding: 1rem 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    footer ul li{
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        display: block;
+        transition: all 0.3s ease;
+        
+    }
     main {
         padding: 2rem;
         text-align: left;
