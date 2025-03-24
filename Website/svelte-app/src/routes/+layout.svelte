@@ -13,7 +13,7 @@
 <header>
     <div class="logo-container">
         <img src="logo.png" alt="Logo" class="logo" />
-        <h1>Merchandise Website</h1>
+        <h1 id="title">Merchandise Website</h1>
     </div>
     <div class="nav-search-container">
         <nav>
@@ -71,15 +71,21 @@
         width: 100%;
     }
 
+    #title{
+        font-size: 300%;
+    }
+
     .logo-container {
         padding: 1.5rem 2rem;
         border-bottom: 1px solid var(--backround-color);
         display: flex;
+        align-items: center;
     }
 
     .logo {
-        height: 200px;
+        height: 150px;
         width: auto;
+        margin-right: 2%;
     }
 
     .nav-search-container {
