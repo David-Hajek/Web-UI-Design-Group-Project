@@ -9,9 +9,6 @@
     }
 </script>
 
-
-
-
 <!-- Header -->
 <header>
     <div class="logo-container">
@@ -20,13 +17,13 @@
     <div class="nav-search-container">
         <nav>
             <ul>
-                <li><a href="/">section1</a></li>
-                <li><a href="/about">section2</a></li>
-                <li><a href="/contact">section3</a></li>
-                <li><a href="/contact">section4</a></li>
-                <li><a href="/contact">section5</a></li>
-                <li><a href="/contact">section6</a></li>
-                <li><a href="/contact">section7</a></li>
+                <li><a href="/">LATEST RELEASES</a></li>
+                <li><a href="/refs/shirts">SHIRTS</a></li>
+                <li><a href="/refs/hoodies">HOODIES</a></li>
+                <li><a href="/refs/sweaters">SWEATERS</a></li>
+                <li><a href="/refs/pants">PANTS</a></li>
+                <li><a href="/refs/boots">BOOTS</a></li>
+                <li><a href="/refs/misc">MISC</a></li>
             </ul>
         </nav>
         <div class="search-container">

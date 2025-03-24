@@ -6,14 +6,11 @@
   // Get the product id from the route parameters
   const productId = $page.params.id;
 
-  // In a real app, you would fetch product details based on productId
-  // For now, we'll use a placeholder product
   const product = {
     id: productId,
     name: `Product ${productId}`,
     price: "$99.99",
     originalPrice: "$129.99",
-    discount: "23% OFF",
     rating: 4.8,
     reviewCount: 124,
     description: "This is a high-quality product made with premium materials. Perfect for everyday use, this product combines style and function in a seamless design. The attention to detail is evident in every aspect, from the stitching to the finish.",
@@ -63,17 +60,7 @@
     quantity += 1;
   }
 
-  // Image zoom effect
-  let zoomLevel = 1;
-  let isZooming = false;
-  
-  function handleMouseEnter() {
-    isZooming = true;
-  }
-  
-  function handleMouseLeave() {
-    isZooming = false;
-  }
+
 </script>
 
 <div class="product-detail-container">
@@ -86,18 +73,12 @@
     <div class="product-image-section">
       <div 
         class="product-image-container" 
-        on:mouseenter={handleMouseEnter} 
-        on:mouseleave={handleMouseLeave}
       >
         <img 
           src="/images/clothing/shirt.png" 
           alt={product.name} 
-          class="product-image" 
-          style="transform: scale({isZooming ? 1.1 : 1})" 
+          class="product-image"  
         />
-        {#if product.discount}
-          <div class="discount-badge">{product.discount}</div>
-        {/if}
       </div>
       <div class="thumbnail-gallery">
         <div class="thumbnail-item active">
@@ -152,21 +133,7 @@
           </div>
         </div>
         
-        <div class="option-section">
-          <h3>Color</h3>
-          <div class="option-buttons">
-            {#each product.colors as color}
-              <button 
-                class="option-button color-button {selectedColor === color ? 'selected' : ''}" 
-                on:click={() => selectedColor = color}
-                style="background-color: {color.toLowerCase()}; color: {color.toLowerCase() === 'white' ? 'black' : 'white'}"
-              >
-                {color}
-              </button>
-            {/each}
-          </div>
-        </div>
-        
+      
         <div class="option-section">
           <h3>Quantity</h3>
           <div class="quantity-selector">
@@ -261,7 +228,6 @@
     overflow: hidden;
     margin-bottom: 1rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    cursor: zoom-in;
   }
   
   .product-image {
@@ -271,18 +237,7 @@
     transition: transform 0.4s ease;
   }
   
-  .discount-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: #ff5252;
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    transform: rotate(5deg);
-  }
+ 
   
   .thumbnail-gallery {
     display: flex;
@@ -430,33 +385,6 @@
     border-color: #222;
   }
   
-  /* Color Selector */
-  .color-button {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    font-size: 0;
-    position: relative;
-    border: 2px solid transparent;
-  }
-  
-  .color-button.selected {
-    border-color: #222;
-  }
-  
-  .color-button:hover::after {
-    content: attr(style);
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 12px;
-    white-space: nowrap;
-  }
   
   /* Quantity Selector */
   .quantity-selector {
