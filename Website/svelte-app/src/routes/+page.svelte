@@ -74,7 +74,7 @@
       border-radius: 8px;
       padding: 1rem;
       cursor: pointer;
-      background-color: var(--secondary-color);
+      background-color: var(--text-color);
     }
     
     .grid-item:hover {
@@ -84,7 +84,7 @@
     }
 
     .grid-item:focus {
-      outline: 2px solid #555;
+      outline: 2px solid var(--text-color);
       background-color: var(--secondary-color);
     }
     
