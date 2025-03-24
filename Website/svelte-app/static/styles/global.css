@@ -2,7 +2,8 @@
 
 :root {
     --primary-color: #ca3bff;
-    --secondary-color: #eeeeee; 
+    --lighter-primary-color: #d76aff;
+    --secondary-color: #c0c0c0; 
     --backround-color: #1d1d1d;
     --text-color: #eeeeee; 
 

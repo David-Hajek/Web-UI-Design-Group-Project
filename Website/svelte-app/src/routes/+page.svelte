@@ -115,7 +115,7 @@
     }
     
     .price {
-      color: #2b2a2a71;
+      color: var(--secondary-color);
       font-weight: 600;
     }
     

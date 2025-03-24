@@ -306,12 +306,12 @@
         >
           {isAddedToCart ? '✓ Added to Cart' : 'Add to Cart'}
         </button>
-        <button 
+        <!-- <button 
           class="add-to-wishlist {isInWishlist ? 'in-wishlist' : ''}" 
           on:click={toggleWishlist}
         >
           {isInWishlist ? '❤ In Wishlist' : 'Add to Wishlist'}
-        </button>
+        </button> -->
       </div>
     </div>
   </div>
@@ -324,7 +324,7 @@
     margin: 0 auto;
     padding: 2rem 1.5rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #333;
+    color: var(--text-color);
   }
   
   .breadcrumbs {
@@ -332,14 +332,14 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--text-color);
     padding-bottom: 1rem;
   }
   
   .back-button {
     background: none;
     border: none;
-    color: #555;
+    color: var(--text-color);
     font-size: 0.9rem;
     cursor: pointer;
     padding: 0.5rem 0;
@@ -352,7 +352,7 @@
   
   .breadcrumb-path {
     font-size: 0.85rem;
-    color: #777;
+    color: var(--text-color);
   }
   
   .product-content {
@@ -369,7 +369,7 @@
   
   .product-image-container {
     position: relative;
-    background-color: #f9f9f9;
+    background-color: var(--text-color);
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 1rem;
@@ -407,7 +407,7 @@
   
   .thumbnail-item.active {
     opacity: 1;
-    border-color: #3d81ee;
+    border-color: var(--primary-color);
   }
   
   .thumbnail-item img {
@@ -428,7 +428,7 @@
     font-weight: 600;
     margin: 0;
     line-height: 1.2;
-    color: #222;
+    color: var(--text-color);
   }
   
   .product-meta {
@@ -449,12 +449,12 @@
   .price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #222;
+    color: var(--text-color);
   }
   
   .original-price {
     font-size: 1rem;
-    color: #999;
+    color: var(--text-color);
     text-decoration: line-through;
   }
   
@@ -471,14 +471,14 @@
   }
   
   .star {
-    color: #ffb700;
+    color: var(--primary-color);
     font-size: 1.2rem;
     line-height: 1;
   }
   
   .review-count {
     font-size: 0.85rem;
-    color: #666;
+    color: var(--secondary-color);
     margin-top: 0.25rem;
   }
   
@@ -487,7 +487,7 @@
     font-size: 0.95rem;
     line-height: 1.5;
     margin: 0;
-    color: #555;
+    color: var(--secondary-color);
   }
   
   /* Product Options */
@@ -513,7 +513,7 @@
   .option-button {
     background-color: #f5f5f5;
     border: 1px solid #e0e0e0;
-    color: #444;
+    color: var(--backround-color);
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -526,7 +526,7 @@
   }
   
   .option-button.selected {
-    background-color: #222;
+    background-color: var(--primary-color);
     color: white;
     border-color: #222;
   }
@@ -582,14 +582,14 @@
     padding-left: 1.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    color: #555;
+    color: var(--secondary-color);
   }
   
   .features li::before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #4caf50;
+    color: var(--primary-color);
     font-weight: bold;
   }
   
@@ -608,23 +608,24 @@
     cursor: pointer;
     transition: all 0.2s ease;
     border: none;
-  }
+  } 
   
   .add-to-cart {
-    background-color: #4caf50;
-    color: white;
+    background-color: var(--text-color);
+    color: var(--backround-color);
     flex: 2;
   }
   
   .add-to-cart:hover {
-    background-color: #43a047;
+    background-color: var(--primary-color);
   }
   
   .add-to-cart.added {
-    background-color: #388e3c;
+    background-color: var(--primary-color);
+    color: var(--text-color);
   }
   
-  .add-to-wishlist {
+  /* .add-to-wishlist {
     background-color: #f5f5f5;
     color: #666;
     flex: 1;
@@ -637,9 +638,9 @@
   
   .add-to-wishlist.in-wishlist {
     background-color: #ffebee;
-    color: #e53935;
+    color: var(--primary-color);
     border-color: #ffcdd2;
-  }
+  } */
   
   /* Responsive Design */
   @media (max-width: 768px) {
