@@ -57,7 +57,7 @@
       text-align: center;
       margin-bottom: 2rem;
       font-weight: 600;
-      color: #333;
+      color: var(--text-color);
     }
     
     .grid {
@@ -74,18 +74,18 @@
       border-radius: 8px;
       padding: 1rem;
       cursor: pointer;
-      background-color: #f9f9f9;
+      background-color: var(--secondary-color);
     }
     
     .grid-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      background-color: #f1f1f1;
+      background-color: var(--primary-color);
     }
 
     .grid-item:focus {
       outline: 2px solid #555;
-      background-color: #f1f1f1;
+      background-color: var(--secondary-color);
     }
     
     .image-container {

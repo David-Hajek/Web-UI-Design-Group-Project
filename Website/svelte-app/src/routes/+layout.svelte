@@ -13,6 +13,7 @@
 <header>
     <div class="logo-container">
         <img src="logo.png" alt="Logo" class="logo" />
+        <h1>Merchandise Website</h1>
     </div>
     <div class="nav-search-container">
         <nav>
@@ -51,7 +52,7 @@
 </main>
 
 <!-- Footer -->
-<footer>
+<footer id ="bottom-links">
     <ul>
         <li>
             <a href="/about">ABOUT</a>
@@ -64,15 +65,16 @@
 
 <style>
     header {
-        background-color:rgb(8, 28, 48);
-        border-bottom: 1px solid rgba(219, 233, 245, 0.1);
+        background-color: var(--backround-color);
+        border-bottom: 1px solid var(--backround-color);
         padding: 0;
         width: 100%;
     }
 
     .logo-container {
         padding: 1.5rem 2rem;
-        border-bottom: 1px solid rgba(219, 233, 245, 0.1);
+        border-bottom: 1px solid var(--backround-color);
+        display: flex;
     }
 
     .logo {
@@ -163,8 +165,8 @@
     }
 
     .search-container input {
-        background-color: rgba(219, 233, 245, 0.1);
-        border: 1px solid rgba(219, 233, 245, 0.2);
+        background-color: var(--backround-color);
+        border: 1px solid var(--secondary-color);
         border-radius: 6px;
         padding: 0.5rem 2.5rem 0.5rem 1rem;
         color: var(--text-color);
@@ -175,13 +177,13 @@
 
     .search-container input:focus {
         outline: none;
-        background-color: rgba(219, 233, 245, 0.15);
-        border-color: var(--primary-color);
+        background-color: var(--primary-color);
+        border-color: var(--secondary-color);
         width: 250px;
     }
 
     .search-container input::placeholder {
-        color: rgba(219, 233, 245, 0.5);
+        color: var(--text-color);
     }
 
     .search-button {
@@ -204,12 +206,14 @@
     }
     
     footer {
-        background-color: #343a40;
-        color: white;
+        background-color: var(--backround-color);
+        color: var(--text-color);
         text-align: center;
         padding: 1rem;
         position: flex;
         bottom: 0;
         width: 100%;
     }
+
+
 </style>
