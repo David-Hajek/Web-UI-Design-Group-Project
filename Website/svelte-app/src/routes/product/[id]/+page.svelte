@@ -11,8 +11,8 @@
     name: `Product ${productId}`,
     price: "$99.99",
     originalPrice: "$129.99",
-    rating: 4.8,
-    reviewCount: 124,
+    rating: 50000.8,
+    reviewCount: 12400000000,
     description: "This is a high-quality product made with premium materials. Perfect for everyday use, this product combines style and function in a seamless design. The attention to detail is evident in every aspect, from the stitching to the finish.",
     features: [
       "Premium quality materials",
@@ -28,7 +28,6 @@
 
   // State variables for product interactions
   let selectedSize = "M";
-  let selectedColor = "Black";
   let quantity = 1;
   let isAddedToCart = false;
   let isInWishlist = false;
