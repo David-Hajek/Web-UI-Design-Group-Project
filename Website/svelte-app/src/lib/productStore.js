@@ -145,7 +145,7 @@ export const products = [
       colors: ["Black", "White", "Navy", "Green"],
       category: ["all","shirts"]
     },
-    { id: 12, name: "Vintage T-Shirt", price: "$32.99",
+    { id: 12, name: "Vintage brambora", price: "$32.99",
       originalPrice: "$42.99", rating: 4.4, reviewCount: 71,
       description: "Another vintage option with unique styling elements.",
       features: [

@@ -2,15 +2,18 @@
 	import { goto } from "$app/navigation";
   import { products } from '$lib';
     
-    
-  let category ="Shirts";
     // Navigation function to product detail page
     function navigateToProduct(id) {
         goto(`/product/${id}`);
     }
 
-    let chosenCategory = "";
-    
+    function filter(){
+      console.log("filtering" + searchText);
+    }
+
+    let chosenCategory = "all";
+    let searchText = "";
+
 </script>
 <div class="nav-search-container">
   <nav>
@@ -26,7 +29,7 @@
   </nav>
   <div class="search-container">
       <input 
-          type="text" 
+          type="search" bind:value={searchText} on:input={filter}
           placeholder="Search..."
       />
       <!--I can explain this in class for you guys if it looks confusing-->
@@ -46,23 +49,25 @@
     <div class="grid">
       <!-- Use {#each} to iterate through products -->
       {#each products as product}
-      {#each product.category as category}
-      {#if category === chosenCategory}
-        <div 
-          class="grid-item" 
-          on:click={() => navigateToProduct(product.id)} 
-          on:keydown={(e) => e.key === 'Enter' && navigateToProduct(product.id)}
-          role="button" 
-          tabindex="0"
-        >
-          <div class="image-container">
-            <img src={product.image} alt="{product.name}" />
-          </div>
-          <h3>{product.name}</h3>
-          <p class="price">{product.price}</p>
-        </div>
-        {/if}
-      {/each}
+        {#each product.category as category}
+          {#if category === chosenCategory}
+              {#if !searchText || product.name.toLowerCase().includes(searchText.toLowerCase())}
+                <div 
+                  class="grid-item" 
+                  on:click={() => navigateToProduct(product.id)} 
+                  on:keydown={(e) => e.key === 'Enter' && navigateToProduct(product.id)}
+                  role="button" 
+                  tabindex="0"
+                >
+                  <div class="image-container">
+                    <img src={product.image} alt="{product.name}" />
+                  </div>
+                  <h3>{product.name}</h3>
+                  <p class="price">{product.price}</p>
+                </div>
+                {/if}
+              {/if}
+        {/each}
       {/each}
     </div>
   </main>
