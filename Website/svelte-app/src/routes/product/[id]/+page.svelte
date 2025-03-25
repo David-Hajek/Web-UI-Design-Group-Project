@@ -10,19 +10,19 @@
   // Find the product that matches the ID
   const product = products.find(p => p.id === productId) || {
     id: productId,
-    name: `Product ${productId}`,
-    price: "$99.99",
-    originalPrice: "$129.99",
+    name: ``,
+    price: "",
+    originalPrice: "",
     rating: 4.8,
     reviewCount: 124,
-    description: "This is a high-quality product made with premium materials. Perfect for everyday use, this product combines style and function in a seamless design. The attention to detail is evident in every aspect, from the stitching to the finish.",
+    description: "",
     features: [
-      "Premium quality materials",
-      "Durable construction",
-      "Modern design",
-      "Easy to maintain",
-      "Eco-friendly production",
-      "1-year warranty"
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
     ],
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "White", "Navy"]

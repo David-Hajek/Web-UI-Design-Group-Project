@@ -3,23 +3,25 @@
   import { products } from '$lib';
     
     
-
+  let category ="Shirts";
     // Navigation function to product detail page
     function navigateToProduct(id) {
         goto(`/product/${id}`);
     }
+
+    let chosenCategory = "";
     
 </script>
 <div class="nav-search-container">
   <nav>
       <ul>
-          <li><button>LATEST RELEASES</button></li>
-          <li><button>SHIRTS</button></li>
-          <li><button>HOODIES</button></li>
-          <li><button>SWEATERS</button></li>
-          <li><button>PANTS</button></li>
-          <li><button>BOOTS</button></li>
-          <li><button>MISC</button></li>
+          <li><button on:click={() => chosenCategory ="all"}  >ALL</button></li>
+          <li><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
+          <li><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
+          <li><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
+          <li><button on:click={() => chosenCategory ="pants"}>PANTS</button></li>
+          <li><button on:click={() => chosenCategory ="boots"}>BOOTS</button></li>
+          <li><button on:click={() => chosenCategory ="misc"}>MISC</button></li>
       </ul>
   </nav>
   <div class="search-container">
@@ -44,6 +46,8 @@
     <div class="grid">
       <!-- Use {#each} to iterate through products -->
       {#each products as product}
+      {#each product.category as category}
+      {#if category === chosenCategory}
         <div 
           class="grid-item" 
           on:click={() => navigateToProduct(product.id)} 
@@ -57,6 +61,8 @@
           <h3>{product.name}</h3>
           <p class="price">{product.price}</p>
         </div>
+        {/if}
+      {/each}
       {/each}
     </div>
   </main>

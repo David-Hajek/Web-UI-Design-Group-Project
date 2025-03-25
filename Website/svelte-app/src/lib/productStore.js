@@ -16,7 +16,8 @@ export const products = [
         "1-year warranty"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy"]
+      colors: ["Black", "White", "Navy"],
+      category: ["all","shirts"]
     },
     { id: 2, name: "Casual T-Shirt", price: "$24.99", image: "/images/clothing/richard.webp",
       originalPrice: "$34.99", rating: 4.5, reviewCount: 98,
@@ -28,7 +29,8 @@ export const products = [
         "Easy to maintain"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy"]
+      colors: ["Black", "White", "Navy"],
+      category: ["all","hoodies"]
     },
     { id: 3, name: "Premium T-Shirt", price: "$34.99", image: "/images/clothing/dobik.jfif",
       originalPrice: "$44.99", rating: 4.9, reviewCount: 156,
@@ -41,7 +43,8 @@ export const products = [
         "Eco-friendly production"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy"]
+      colors: ["Black", "White", "Navy"],
+      category: ["all","hoodies"]
     },
     { id: 4, name: "Sport T-Shirt", price: "$27.99", image: "/images/clothing/pavel.jfif",
       originalPrice: "$37.99", rating: 4.6, reviewCount: 112,
@@ -53,7 +56,8 @@ export const products = [
         "Stretchable material"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy", "Red"]
+      colors: ["Black", "White", "Navy", "Red"],
+      category: ["all","boots"]
     },
     { id: 5, name: "Vintage T-Shirt", price: "$32.99", image: "/images/clothing/pavlik.png",
       originalPrice: "$42.99", rating: 4.7, reviewCount: 89,
@@ -65,7 +69,8 @@ export const products = [
         "Authentic look and feel"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy", "Gray"]
+      colors: ["Black", "White", "Navy", "Gray"],
+      category: ["all","shirts"]
     },
     { id: 6, name: "Modern T-Shirt", price: "$29.99", 
       originalPrice: "$39.99", rating: 4.4, reviewCount: 76,
@@ -77,7 +82,8 @@ export const products = [
         "Comfortable fit"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy"]
+      colors: ["Black", "White", "Navy"],
+      category: ["all","shirts"]
     },
     { id: 7, name: "Vintage T-Shirt", price: "$32.99",
       originalPrice: "$42.99", rating: 4.5, reviewCount: 92,
@@ -88,7 +94,8 @@ export const products = [
         "Pre-washed for comfort"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy"]
+      colors: ["Black", "White", "Navy"],
+      category: ["all","shirts"]
     },
     { id: 8, name: "Vintage T-Shirt", price: "$32.99",
       originalPrice: "$42.99", rating: 4.3, reviewCount: 67,
@@ -99,7 +106,8 @@ export const products = [
         "Durable construction"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy"]
+      colors: ["Black", "White", "Navy"],
+      category: ["all","shirts"]
     },
     { id: 9, name: "Sport T-Shirt", price: "$27.99",
       originalPrice: "$37.99", rating: 4.7, reviewCount: 103,
@@ -110,7 +118,8 @@ export const products = [
         "Breathable design"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy", "Red"]
+      colors: ["Black", "White", "Navy", "Red"],
+      category: ["all","shirts"]
     },
     { id: 10, name: "Vintage T-Shirt", price: "$32.99",
       originalPrice: "$42.99", rating: 4.6, reviewCount: 88,
@@ -121,7 +130,8 @@ export const products = [
         "Comfortable fit"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy"]
+      colors: ["Black", "White", "Navy"],
+      category: ["all","shirts"]
     },
     { id: 11, name: "Modern T-Shirt", price: "$29.99",
       originalPrice: "$39.99", rating: 4.5, reviewCount: 79,
@@ -132,7 +142,8 @@ export const products = [
         "Versatile design"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy", "Green"]
+      colors: ["Black", "White", "Navy", "Green"],
+      category: ["all","shirts"]
     },
     { id: 12, name: "Vintage T-Shirt", price: "$32.99",
       originalPrice: "$42.99", rating: 4.4, reviewCount: 71,
@@ -143,6 +154,7 @@ export const products = [
         "Durable construction"
       ],
       sizes: ["S", "M", "L", "XL"],
-      colors: ["Black", "White", "Navy", "Brown"]
+      colors: ["Black", "White", "Navy", "Brown"],
+      category: ["all","shirts"]
     }
   ];
