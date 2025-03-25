@@ -15,6 +15,7 @@
         <img src="logo.png" alt="Logo" class="logo" />
         <h1 id="title">Merchandise Website</h1>
     </div>
+    
 </header>
 
 <!-- Page Content -->
@@ -59,50 +60,7 @@
         margin-right: 2%;
     }
 
-    .nav-search-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-    }
-
-    nav {
-        padding: 0;
-        flex-grow: 1;
-    }
-
-    nav ul {
-        list-style: none;
-        padding: 1rem 0;
-        margin: 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-
-    nav ul li {
-        margin: 0;
-        flex-shrink: 0;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        display: block;
-        transition: all 0.3s ease;
-    }
-
-    nav ul li a:hover {
-        background-color: var(--primary-color);
-        color: var(--text-color);
-        transform: translateY(-2px);
-    }
+    
 
 
     footer ul {
@@ -134,53 +92,7 @@
         text-align: left;
     }
     
-    .search-container {
-        display: flex;
-        align-items: center;
-        margin-left: 2rem;
-        position: relative;
-    }
-
-    .search-container input {
-        background-color: var(--backround-color);
-        border: 1px solid var(--secondary-color);
-        border-radius: 6px;
-        padding: 0.5rem 2.5rem 0.5rem 1rem;
-        color: var(--text-color);
-        font-size: 0.9rem;
-        width: 200px;
-        transition: all 0.3s ease;
-    }
-
-    .search-container input:focus {
-        outline: none;
-        background-color: var(--primary-color);
-        border-color: var(--secondary-color);
-        width: 250px;
-    }
-
-    .search-container input::placeholder {
-        color: var(--text-color);
-    }
-
-    .search-button {
-        position: absolute;
-        right: 8px;
-        background: none;
-        border: none;
-        color: var(--text-color);
-        cursor: pointer;
-        padding: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.7;
-        transition: opacity 0.3s ease;
-    }
-
-    .search-button:hover {
-        opacity: 1;
-    }
+   
     
     footer {
         background-color: var(--backround-color);
