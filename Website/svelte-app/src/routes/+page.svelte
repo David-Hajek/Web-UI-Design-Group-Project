@@ -7,10 +7,6 @@
         goto(`/product/${id}`);
     }
 
-    function filter(){
-      console.log("filtering" + searchText);
-    }
-
     let chosenCategory = "all";
     let searchText = "";
 
@@ -18,7 +14,7 @@
 <div class="nav-search-container">
   <nav>
       <ul>
-          <li><button on:click={() => chosenCategory ="all"}  >ALL</button></li>
+          <li><button on:click={() => chosenCategory ="all"}  >ALL</button></li> <!-- set chosenCategory based on which button is clicked -->
           <li><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
           <li><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
           <li><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
@@ -29,7 +25,7 @@
   </nav>
   <div class="search-container">
       <input 
-          type="search" bind:value={searchText} on:input={filter}
+          type="search" bind:value={searchText}
           placeholder="Search..."
       />
       <!--I can explain this in class for you guys if it looks confusing-->
@@ -49,9 +45,9 @@
     <div class="grid">
       <!-- Use {#each} to iterate through products -->
       {#each products as product}
-        {#each product.category as category}
+        {#each product.category as category} <!-- go through the list of categories for each item, and if the category is equal to the one that has been selected, show those items -->
           {#if category === chosenCategory}
-              {#if !searchText || product.name.toLowerCase().includes(searchText.toLowerCase())}
+              {#if !searchText || product.name.toLowerCase().includes(searchText.toLowerCase())} <!-- if searching, check for similarity and only show items that include the search string -->
                 <div 
                   class="grid-item" 
                   on:click={() => navigateToProduct(product.id)} 
