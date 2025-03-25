@@ -1,29 +1,44 @@
 <script>
 	import { goto } from "$app/navigation";
-
-    // Array of products for easy maintenance
-    const products = [
-        { id: 1, name: "Classic T-Shirt", price: "$29.99", image: "/images/clothing/shirt.png"},
-        { id: 2, name: "Casual T-Shirt", price: "$24.99", image: "/images/clothing/richard.webp"},
-        { id: 3, name: "Premium T-Shirt", price: "$34.99", image: "/images/clothing/dobik.jfif" },
-        { id: 4, name: "Sport T-Shirt", price: "$27.99", image: "/images/clothing/pavel.jfif" },
-        { id: 5, name: "Vintage T-Shirt", price: "$32.99", image: "/images/clothing/pavlik.png" },
-        { id: 6, name: "Modern T-Shirt", price: "$29.99" },
-        { id: 7, name: "Vintage T-Shirt", price: "$32.99" },
-        { id: 8, name: "Vintage T-Shirt", price: "$32.99" },
-        { id: 9, name: "Sport T-Shirt", price: "$27.99" },
-        { id: 10, name: "Vintage T-Shirt", price: "$32.99" },
-        { id: 11, name: "Modern T-Shirt", price: "$29.99" },
-        { id: 12, name: "Vintage T-Shirt", price: "$32.99" }
-    ];
+  import { products } from '$lib';
+    
+    
 
     // Navigation function to product detail page
     function navigateToProduct(id) {
         goto(`/product/${id}`);
     }
+    
 </script>
-  
+<div class="nav-search-container">
+  <nav>
+      <ul>
+          <li><button>LATEST RELEASES</button></li>
+          <li><button>SHIRTS</button></li>
+          <li><button>HOODIES</button></li>
+          <li><button>SWEATERS</button></li>
+          <li><button>PANTS</button></li>
+          <li><button>BOOTS</button></li>
+          <li><button>MISC</button></li>
+      </ul>
+  </nav>
+  <div class="search-container">
+      <input 
+          type="text" 
+          placeholder="Search..."
+      />
+      <!--I can explain this in class for you guys if it looks confusing-->
+      <button class="search-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <!-- we can eventually replace this with an icon-->
+      </button>
+  </div>
+</div>
   <main>
+    
     <h1>Clothing Collection</h1>
     
     <div class="grid">
@@ -119,6 +134,103 @@
       font-weight: 600;
     }
     
+    .search-container {
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+        position: relative;
+    }
+
+    .search-container input {
+        background-color: var(--backround-color);
+        border: 1px solid var(--secondary-color);
+        border-radius: 6px;
+        padding: 0.5rem 2.5rem 0.5rem 1rem;
+        color: var(--text-color);
+        font-size: 0.9rem;
+        width: 200px;
+        transition: all 0.3s ease;
+    }
+
+    .search-container input:focus {
+        outline: none;
+        background-color: var(--primary-color);
+        border-color: var(--secondary-color);
+        width: 250px;
+    }
+
+    .search-container input::placeholder {
+        color: var(--text-color);
+    }
+
+    .search-button {
+        position: absolute;
+        right: 8px;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+
+    .search-button:hover {
+        opacity: 1;
+    }
+
+    .nav-search-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       
+    }
+
+    nav {
+        padding: 0;
+        flex-grow: 1;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 1rem 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    nav ul li button {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    nav ul li button:hover {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        transform: translateY(-2px);
+    }
+    button{
+      background-color: rgba(0, 0, 0, 0);
+      border-color: rgba(0, 0, 0, 0);
+      font-family: 'Unbounded', system-ui, sans-serif;
+    }
     /* Responsive design */
     @media (max-width: 900px) {
       .grid {
@@ -131,4 +243,5 @@
         grid-template-columns: 1fr;
       }
     }
+    
   </style>

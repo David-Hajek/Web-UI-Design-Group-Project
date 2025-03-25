@@ -15,35 +15,6 @@
         <img src="logo.png" alt="Logo" class="logo" />
         <h1 id="title">Merchandise Website</h1>
     </div>
-    <div class="nav-search-container">
-        <nav>
-            <ul>
-                <li><a href="/">LATEST RELEASES</a></li>
-                <li><a href="/refs/shirts">SHIRTS</a></li>
-                <li><a href="/refs/hoodies">HOODIES</a></li>
-                <li><a href="/refs/sweaters">SWEATERS</a></li>
-                <li><a href="/refs/pants">PANTS</a></li>
-                <li><a href="/refs/boots">BOOTS</a></li>
-                <li><a href="/refs/misc">MISC</a></li>
-            </ul>
-        </nav>
-        <div class="search-container">
-            <input 
-                type="text" 
-                placeholder="Search..."
-                bind:value={searchQuery} 
-                on:keydown={handleSearch}
-            />
-            <!--I can explain this in class for you guys if it looks confusing-->
-            <button class="search-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <!-- we can eventually replace this with an icon-->
-            </button>
-        </div>
-    </div>
 </header>
 
 <!-- Page Content -->
