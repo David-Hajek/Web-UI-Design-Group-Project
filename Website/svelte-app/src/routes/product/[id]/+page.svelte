@@ -1,7 +1,8 @@
 <script>
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
-  import { products } from '$lib';
+  import { products, cart } from '$lib';
+  import { Cart } from '$lib';
   import { onMount } from 'svelte';
 
   // Get the product ID from the URL parameters
@@ -43,13 +44,27 @@
   }
 
   // Function to handle adding to cart
-  function addToCart() {
+  const addToCart = (product) => {
+    
+    // Tymek Code
+		if($cart.includes(product)) {
+			$cart.map((item) => {
+				if(item.id === product.id) {
+						item.quantity += 1
+				}
+				$cart = $cart
+			})
+			return
+		}
+		product.quantity += 1
+		$cart = [...$cart, product]
+
+    // David Code
     isAddedToCart = true;
     setTimeout(() => {
       isAddedToCart = false;
     }, 2000);
   }
-
   // Function to toggle wishlist
   function toggleWishlist() {
     isInWishlist = !isInWishlist;

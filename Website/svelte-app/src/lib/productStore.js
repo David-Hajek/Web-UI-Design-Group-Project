@@ -158,3 +158,5 @@ export const products = [
       category: ["all","shirts"]
     }
   ];
+
+  export const cart = writable([])
