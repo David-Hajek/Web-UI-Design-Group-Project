@@ -1,12 +1,15 @@
 <script>
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
-  import { selectedProduct, products } from '$lib';
+  import { products } from '$lib';
   import { onMount } from 'svelte';
 
   // Get the product ID from the URL parameters
   const productId = parseInt(page.params.id);
   
+  
+  let images = [1,2,3];
+  let chosenImage = 1;
   // Find the product that matches the ID
   const product = products.find(p => p.id === productId) || {
     id: productId,
@@ -60,8 +63,7 @@
   function increaseQuantity() {
     quantity += 1;
   }
-  console.log(product.image);
-  console.log(product.image);
+
 </script>
 
 <div class="product-detail-container">
@@ -75,22 +77,46 @@
       <div 
         class="product-image-container" 
       >
+      {#if chosenImage === 1}
         <img 
           src="{product.image}" 
           alt={product.name} 
           class="product-image"  
         />
-        
+        {/if}
+        {#if chosenImage === 2}
+        <img 
+          src="{product.image2}" 
+          alt={product.name} 
+          class="product-image"  
+        />
+        {/if}
+        {#if chosenImage === 3}
+        <img 
+          src="{product.image3}" 
+          alt={product.name} 
+          class="product-image"  
+        />
+        {/if}
       </div>
       <div class="thumbnail-gallery">
-        <div class="thumbnail-item active">
-          <img src="/images/clothing/shirt.png" alt="Thumbnail 1" />
+        <div 
+            class="thumbnail-item {chosenImage === 1 ? 'active' : ''}"
+            on:click={() => chosenImage = 1}
+        >
+          <img src="{product.image}" alt="Thumbnail 1" />
         </div>
-        <div class="thumbnail-item">
-          <img src="/images/clothing/shirt.png" alt="Thumbnail 2" />
+        <div 
+            class="thumbnail-item {chosenImage === 2 ? 'active' : ''}"
+            on:click={() => chosenImage = 2}
+        >
+          <img src="{product.image2}" alt="Thumbnail 2" />
         </div>
-        <div class="thumbnail-item">
-          <img src="/images/clothing/shirt.png" alt="Thumbnail 3" />
+        <div 
+            class="thumbnail-item {chosenImage === 3 ? 'active' : ''}"
+            on:click={() => chosenImage = 3}
+        >
+          <img src="{product.image3}" alt="Thumbnail 3" />
         </div>
       </div>
     </div>
@@ -179,7 +205,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
     color: var(--text-color);
   }
   
@@ -200,6 +226,7 @@
     cursor: pointer;
     padding: 0.5rem 0;
     transition: color 0.2s ease;
+    --font-family: 'Unbounded', system-ui, sans-serif;
   }
   
   .back-button:hover {
@@ -375,6 +402,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
   
   .option-button:hover {
@@ -418,6 +446,7 @@
     text-align: center;
     font-size: 0.95rem;
     font-weight: 600;
+    color: var(--backround-color);
   }
   
   /* Features List */
