@@ -23,6 +23,9 @@
           <li><button on:click={() => chosenCategory ="misc"}>MISC</button></li>
       </ul>
   </nav>
+  <div class="shopping cart">
+    <a href="/cart">CART</a>
+  </div>
   <div class="search-container">
       <input 
           type="search" bind:value={searchText}
