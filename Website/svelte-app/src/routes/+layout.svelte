@@ -12,8 +12,10 @@
 <!-- Header -->
 <header>
     <div class="logo-container">
+    <a href="/">
         <img src="logo.png" alt="Logo" class="logo" />
         <h1 id="title">Merchandise Website</h1>
+    </a>
     </div>
     
 </header>
@@ -54,14 +56,24 @@
         align-items: center;
     }
 
+    header a {
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--backround-color);
+        display: flex;
+        align-items: center;
+    }
+
+    header a:hover {
+        color: var(--text-color);
+        font-style: normal;
+        text-decoration: none;
+    }
+
     .logo {
         height: 150px;
         width: auto;
         margin-right: 2%;
     }
-
-    
-
 
     footer ul {
         left: 50%;
@@ -91,8 +103,6 @@
         padding: 2rem;
         text-align: left;
     }
-    
-   
     
     footer {
         background-color: var(--backround-color);

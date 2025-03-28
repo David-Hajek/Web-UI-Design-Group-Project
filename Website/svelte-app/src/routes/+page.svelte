@@ -157,6 +157,7 @@
         font-size: 0.9rem;
         width: 200px;
         transition: all 0.3s ease;
+        font-family: 'Unbounded', system-ui, sans-serif;
     }
 
     .search-container input:focus {
@@ -232,9 +233,10 @@
         background-color: var(--primary-color);
         color: var(--text-color);
         transform: translateY(-2px);
+        cursor: pointer;
     }
     button{
-      background-color: rgba(0, 0, 0, 0);
+      background-color: rgba(0, 0, 0, 0); /*transparency*/
       border-color: rgba(0, 0, 0, 0);
       font-family: 'Unbounded', system-ui, sans-serif;
     }
