@@ -4,7 +4,7 @@ import { writable } from "svelte/store";
 
 // Array of products (same as in the main page)
 export const products = [
-    { id: 1, name: "Classic T-Shirt", price: "$29.99", image: "/images/clothing/shirt.png",
+    { id: 1, name: "Classic T-Shirt", price: "$29.99", image: "/images/clothing/shirt.png", 
       originalPrice: "$39.99", rating: 4.8, reviewCount: 124,
       description: "This is a high-quality product made with premium materials. Perfect for everyday use, this product combines style and function in a seamless design. The attention to detail is evident in every aspect, from the stitching to the finish.",
       features: [
@@ -19,7 +19,7 @@ export const products = [
       colors: ["Black", "White", "Navy"],
       category: ["all","shirts"]
     },
-    { id: 2, name: "Casual T-Shirt", price: "$24.99", image: "/images/clothing/richard.webp",
+    { id: 2, name: "Casual T-Shirt", price: "$24.99", image: "/images/clothing/richard.webp", image2: "/images/clothing/shirt.png", image3: "/images/clothing/pavel.jfif",
       originalPrice: "$34.99", rating: 4.5, reviewCount: 98,
       description: "This is a high-quality product made with premium materials. Perfect for everyday use, this product combines style and function in a seamless design.",
       features: [
