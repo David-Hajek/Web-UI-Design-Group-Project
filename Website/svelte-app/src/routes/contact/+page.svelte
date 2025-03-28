@@ -16,9 +16,10 @@
         </nav>
     </div>
 
+    <div class="content">
     <h1>Contact Us</h1>
     <p>get in touch via email at <a href="mailto:example@email.com">info@example.com</a>.</p>
-    
+    </div>
     
     <style>
         h1{color: var(--text-color);}
@@ -30,8 +31,18 @@
         color: var(--text-color);
         font-family: 'Unbounded', system-ui, sans-serif;
         }
+
         button:hover{
-            color: var(--primary-color);
-            cursor: pointer;
+        color: var(--primary-color);
+        cursor: pointer;
+        }
+
+        .content{
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center horizontally */
+        justify-content: center; /* Center vertically */
+        text-align: center; /* Center the text */
+        padding: 20px;
         }
     </style>

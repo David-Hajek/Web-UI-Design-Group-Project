@@ -68,8 +68,8 @@
 
 <div class="product-detail-container">
   <nav class="breadcrumbs">
-    <button class="back-button" on:click={goBack}>← Back to Products</button>
-    <div class="breadcrumb-path">Home / Products / {product.name}</div>
+    <button class="back-button" on:click={goBack}>&lt;&nbsp;&nbsp; Back to Products</button>
+    <div class="breadcrumb-path"> <a href="/">Products</a> / {product.name}</div>
   </nav>
 
   <div class="product-content">
@@ -226,7 +226,7 @@
     cursor: pointer;
     padding: 0.5rem 0;
     transition: color 0.2s ease;
-    --font-family: 'Unbounded', system-ui, sans-serif;
+    font-family: var(--font-family);
   }
   
   .back-button:hover {
@@ -485,7 +485,7 @@
     margin-top: 1rem;
   }
   
-  .add-to-cart, .add-to-wishlist {
+  .add-to-cart {
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     font-size: 0.95rem;
@@ -493,12 +493,11 @@
     cursor: pointer;
     transition: all 0.2s ease;
     border: none;
-  } 
-  
-  .add-to-cart {
+
     background-color: var(--text-color);
     color: var(--backround-color);
     flex: 2;
+    font-family: var(--font-family);
   }
   
   .add-to-cart:hover {
@@ -510,22 +509,7 @@
     color: var(--text-color);
   }
   
-  /* .add-to-wishlist {
-    background-color: #f5f5f5;
-    color: #666;
-    flex: 1;
-    border: 1px solid #e0e0e0;
-  }
   
-  .add-to-wishlist:hover {
-    background-color: #eaeaea;
-  }
-  
-  .add-to-wishlist.in-wishlist {
-    background-color: #ffebee;
-    color: var(--primary-color);
-    border-color: #ffcdd2;
-  } */
   
   /* Responsive Design */
   @media (max-width: 768px) {
