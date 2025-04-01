@@ -26,15 +26,15 @@
         </nav>
     </div>
 
-    <div class="content" transition:fade>
-    <h1>Contact Us</h1>
+    <div class="content">
+    <h1>CONTACT</h1>
     </div>
 
-    <form on:submit|preventDefault={handleSubmit}>
+    <form on:submit|preventDefault={handleSubmit} use:reveal={{preset:"slide"}}>
         <p><label for="name">Name:</label><input id="name" type="text" name="name" required /></p>
         <p><label for="email">Email:</label><input id="email" type="email" name="email" required /></p>
         <p>
-            <label for="query">Query Matter:</label>
+            <label for="query">Subject:</label>
             <select id="query" name="query" required>
                 <option value="" disabled selected>Select a query subject</option>
                 <option value="refund">Returns and Refunds</option>
@@ -43,7 +43,7 @@
                 <option value="other">Other</option>
             </select>
         </p>
-        <p><label for="message">Your Message:</label><textarea id="message" name="message" required rows="3"></textarea></p>
+        <p><label for="message">Message:</label><textarea id="message" name="message" required rows="3"></textarea></p>
         <input type="submit" value="Submit" />
     </form>
     <p id="feedback">{status}</p>
@@ -65,7 +65,7 @@
             height: 100%;
             font-family: var(--font-family);
             background-color: rgba(0, 0, 0, 0);
-            border-width: 2px;
+            border-width: var(--line-width);
             border-color: var(--text-color);
             border-radius: 10px; /*adds rounded corners */
             padding: 10px; /*adds spacing inside the fields */
@@ -87,6 +87,8 @@
         border-color: rgba(0, 0, 0, 0);
         color: var(--text-color);
         font-family: 'Unbounded', system-ui, sans-serif;
+        font-size: var(--nav-text-size);
+        transition: color 0.2s ease;
         }
 
         button:hover{
@@ -105,12 +107,12 @@
 
         form {
         display: grid;
-        grid-template-columns: 1fr 2fr; /* Adjust column ratios as needed */
-        gap: 15px; /* Space between rows and columns */
-        align-items: center; /* Aligns items vertically */
-        width: 100%; /* Full width form */
-        max-width: 500px; /* Optional: Limit form width */
-        margin: 0 auto; /* Center form horizontally */
+        grid-template-columns: 1fr 2fr; 
+        gap: 15px; 
+        align-items: center; 
+        width: 100%; 
+        max-width: 500px; 
+        margin: 0 auto; 
         }
 
         form p {
@@ -120,11 +122,11 @@
 
         form p > input,
         form p > textarea {
-            width: 100%; /* Inputs take up their column fully */
+            width: 100%; 
             height: 100%;
             font-family: var(--font-family);
             background-color: rgba(0, 0, 0, 0);
-            border-width: 1.5px;
+            border-width: var(--line-width);
             border-color: var(--text-color);
             border-radius: 10px; /*adds rounded corners */
             padding: 10px; /*adds spacing inside the fields */
@@ -132,16 +134,19 @@
             /*remove styling*/
             box-shadow: none; 
             appearance: none;
+            -webkit-appearance: none;
+            outline: none; 
             caret-color: var(--text-color);
             transition: all 0.2s ease-in-out;
         }
 
         form p > input:focus,
         form p > textarea:focus {
-            outline: none; /* Removes the default browser outline */
-            border: 1.5px solid var(--primary-color); /* Adds a custom border color */
-            background-color: rgba(0, 0, 0, 0.05); /* Changes the background slightly */
-            caret-color: var(--text-color); /* Stylizes the blinking | cursor */
+            outline: none; /* removes the default browser outline */
+            border: solid var(--primary-color); 
+            border-width: var(--line-width);
+            background-color: rgba(0, 0, 0, 0.05); /* changes the background slightly */
+            caret-color: var(--text-color); /* stylizes the blinking | cursor */
             color: var(--text-color);
         }
 
@@ -157,6 +162,7 @@
             box-shadow: none; 
             border: none; 
             appearance: none; 
+            -webkit-appearance: none;
         }
         input[type="submit"]:hover {
             background-color: var(--primary-color);
