@@ -4,6 +4,7 @@
   import { products} from '$lib';
   import { cart, removeFromCart, clearCart, addToCart } from '$lib';
   import { onMount } from 'svelte';
+  import {reveal} from 'svelte-reveal';
 
   // Get the product ID from the URL parameters
   const productId = parseInt(page.params.id);
@@ -147,15 +148,16 @@
 </div>
 
 <div class="product-detail-container">
-  <nav class="breadcrumbs">
-    <button class="back-button" on:click={goBack}>← Back to Products</button>
-    <div class="breadcrumb-path">Home / Products / {product.name}</div> 
+
+  <nav class="breadcrumbs"use:reveal={{ preset: "slide", delay: 50 }}>
+    <button class="back-button" use:reveal={{ preset: "slide", delay: 100 }} on:click={goBack}>&lt;&nbsp;&nbsp;Back to Products</button>
+    <div class="breadcrumb-path" use:reveal={{ preset: "slide", delay: 150 }}>Products / {product.name}</div>
   </nav>
 
   <div class="product-content">
-    <div class="product-image-section">
+    <div class="product-image-section" use:reveal={{ preset: "slide", delay: 200 }}>
       <div 
-        class="product-image-container" 
+        class="product-image-container" use:reveal={{ preset: "slide", delay: 250 }}
       >
       {#if chosenImage === 1}
         <img 
@@ -179,7 +181,7 @@
         />
         {/if}
       </div>
-      <div class="thumbnail-gallery">
+      <div class="thumbnail-gallery" use:reveal={{ preset: "slide"   }}>
         <div 
             class="thumbnail-item {chosenImage === 1 ? 'active' : ''}"
             on:click={() => chosenImage = 1}
@@ -201,7 +203,7 @@
       </div>
     </div>
     
-    <div class="product-info">
+    <div class="product-info" use:reveal={{ preset: "slide", delay: 300 }}>
       <h1>{product.name}</h1>
       
       <div class="product-meta">
@@ -307,7 +309,7 @@
    
     color: var(--text-color);
   }
-  
+
   .reviews{
     text-align: center;
   }
@@ -358,7 +360,7 @@
     cursor: pointer;
     padding: 0.5rem 0;
     transition: color 0.2s ease;
-    --font-family: 'Unbounded', system-ui, sans-serif;
+    font-family: var(--font-family);
   }
   
   .back-button:hover {
