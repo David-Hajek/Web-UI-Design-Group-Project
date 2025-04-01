@@ -2,7 +2,7 @@
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
   import { products} from '$lib';
-  import { addToCart } from '$lib';
+  import { cart, addToCart } from '$lib';
   import { onMount } from 'svelte';
 
   // Get the product ID from the URL parameters
@@ -11,6 +11,10 @@
   
   let images = [1,2,3];
   let chosenImage = 1;
+
+
+  let cartTabShown = false;
+
   // Find the product that matches the ID
   const product = products.find(p => p.id === productId) || {
     id: productId,
@@ -53,6 +57,8 @@
     setTimeout(() => {
       isAddedToCart = false;
     }, 2000);
+
+    cartTabShown = true;
   };
 
   // Function to toggle wishlist
@@ -70,6 +76,22 @@
   }
 
 </script>
+
+<div class="cart {cartTabShown ? 'open' : ''}">
+  <h1>Your Cart</h1>
+  {#if $cart.length > 0}
+    {#each $cart as item}
+      <div>
+        <p>{item.name} x {item.quantity} - ${(item.quantity * parseFloat(item.price.replace("$", ""))).toFixed(2)}</p>
+        <button on:click={() => removeFromCart(item.id)}>Remove</button>
+      </div>
+    {/each}
+    <p>Total: ${total.toFixed(2)}</p>
+    <button on:click={clearCart}>Clear Cart</button>
+  {:else}
+    <p>Your cart is empty.</p>
+  {/if}
+</div>
 
 <div class="product-detail-container">
   <nav class="breadcrumbs">
@@ -682,5 +704,21 @@
     .price {
       font-size: 1.25rem;
     }
+  }
+
+  .cartTab {
+    position: fixed;
+    right: -300px; /* Start offscreen */
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    z-index: 1;
+  }
+
+  .cartTab.open {
+    right: 0; /* Slide into view */
   }
 </style>
