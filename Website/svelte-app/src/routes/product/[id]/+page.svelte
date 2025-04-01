@@ -128,10 +128,14 @@
   <h2>Your Cart</h2>
   {#if $cart.length > 0}
     {#each $cart as item}
-      <div>
+      <div class ="cart-item">
         <p>{item.name} x {item.quantity} - ${(item.quantity * parseFloat(item.price.replace("$", ""))).toFixed(2)}</p>
-        <button on:click={() => removeFromCart(item.id)}>Remove</button>
+        <p><img class="cart-item-image" 
+        src={item.image} 
+        alt={item.name} />
+        <button on:click={() => removeFromCart(item.id)}>Remove</button></p>
       </div>
+      <hr class="cart-divider-line" />
     {/each}
     <p>Total: ${total.toFixed(2)}</p>
     <button on:click={clearCart}>Clear Cart</button>
@@ -686,11 +690,33 @@
 
   }
   
-  
   .view-cart:hover, .close-cart:hover{
     background-color: var(--primary-color);
   }
 
+  .cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cart-item-image {
+  width: 200px;
+  height: 200px;
+  object-fit: fill;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-divider-line {
+  width: 100%;
+  border: none;
+  border-top: 3px solid #ccc; /* Divider styling */
+  margin: 10px 0; /* Space above and below the line */
+}
   /* Responsive Design */
   @media (max-width: 768px) {
     .product-content {
