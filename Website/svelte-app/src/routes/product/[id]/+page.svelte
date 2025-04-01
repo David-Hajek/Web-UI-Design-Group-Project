@@ -2,7 +2,7 @@
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
   import { products} from '$lib';
-  import { cart, addToCart } from '$lib';
+  import { cart, removeFromCart, clearCart, addToCart } from '$lib';
   import { onMount } from 'svelte';
 
   // Get the product ID from the URL parameters
@@ -11,9 +11,6 @@
   
   let images = [1,2,3];
   let chosenImage = 1;
-
-
-  let cartTabShown = false;
 
   // Find the product that matches the ID
   const product = products.find(p => p.id === productId) || {
@@ -41,6 +38,7 @@
   let quantity = 1;
   let isAddedToCart = false;
   let isInWishlist = false;
+  let isCartTabShown = false;
 
   // Function to go back to the products page
   function goBack() {
@@ -58,9 +56,14 @@
       isAddedToCart = false;
     }, 2000);
 
-    cartTabShown = true;
+    isCartTabShown = true;
+    console.log("Current cart:", $cart);
   };
 
+  // Handle updating cart
+  let total = 0;
+  $: total = $cart.reduce((sum, item) => sum + item.quantity * parseFloat(item.price.replace("$", "")), 0);  // Calculate total whenever cart updates
+  
   // Function to toggle wishlist
   function toggleWishlist() {
     isInWishlist = !isInWishlist;
@@ -77,8 +80,8 @@
 
 </script>
 
-<div class="cart {cartTabShown ? 'open' : ''}">
-  <h1>Your Cart</h1>
+<div class="cart-tab {isCartTabShown ? 'open' : ''}">
+  <h2>Your Cart</h2>
   {#if $cart.length > 0}
     {#each $cart as item}
       <div>
@@ -91,12 +94,14 @@
   {:else}
     <p>Your cart is empty.</p>
   {/if}
+  <button class="view-cart" on:click={() => goto('/cart')}>View Cart</button>
+  <button class="close-cart" on:click={() => isCartTabShown = false}>Close Cart</button>
 </div>
 
 <div class="product-detail-container">
   <nav class="breadcrumbs">
     <button class="back-button" on:click={goBack}>← Back to Products</button>
-    <div class="breadcrumb-path">Home / Products / {product.name}</div>
+    <div class="breadcrumb-path">Home / Products / {product.name}</div> 
   </nav>
 
   <div class="product-content">
@@ -652,6 +657,42 @@
     border-color: #ffcdd2;
   } */
   
+  /* Cart tab */
+  .cart-tab {
+  color:#000;
+  position: fixed;
+  top: 0;
+  right: -600px; /* Initially hidden off-screen */
+  width: 600px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 2;
+}
+
+  .cart-tab.open {
+  right: 0; 
+}
+
+  .view-cart, .close-cart{
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background-color: var(--text-color);
+    color: var(--background-color);
+
+  }
+  
+  
+  .view-cart:hover, .close-cart:hover{
+    background-color: var(--primary-color);
+  }
+
   /* Responsive Design */
   @media (max-width: 768px) {
     .product-content {
@@ -706,19 +747,4 @@
     }
   }
 
-  .cartTab {
-    position: fixed;
-    right: -300px; /* Start offscreen */
-    top: 0;
-    width: 300px;
-    height: 100vh;
-    background: #fff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    transition: right 0.3s ease;
-    z-index: 1;
-  }
-
-  .cartTab.open {
-    right: 0; /* Slide into view */
-  }
 </style>
