@@ -1,6 +1,9 @@
 <script>
     import { onMount } from 'svelte';
     import { goto } from "$app/navigation";
+    import { reveal } from 'svelte-reveal';
+    import { fade, slide} from 'svelte/transition';
+
     onMount(() =>{
         console.log("Contacts loaded");
     });
@@ -16,7 +19,7 @@
         </nav>
     </div>
 
-    <div class="content">
+    <div class="content" transition:fade>
     <h1>Contact Us</h1>
     <p>get in touch via email at <a href="mailto:example@email.com">info@example.com</a>.</p>
     </div>

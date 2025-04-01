@@ -73,8 +73,8 @@
 
 <div class="product-detail-container">
   <nav class="breadcrumbs">
-    <button class="back-button" on:click={goBack}>← Back to Products</button>
-    <div class="breadcrumb-path">Home / Products / {product.name}</div>
+    <button class="back-button" on:click={goBack}>&lt;&nbsp;&nbsp;Back to Products</button>
+    <div class="breadcrumb-path">Products / {product.name}</div>
   </nav>
 
   <div class="product-content">
@@ -329,7 +329,7 @@
     cursor: pointer;
     padding: 0.5rem 0;
     transition: color 0.2s ease;
-    --font-family: 'Unbounded', system-ui, sans-serif;
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
   
   .back-button:hover {
