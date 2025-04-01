@@ -2,15 +2,61 @@
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
   import { products} from '$lib';
-  import { addToCart } from '$lib';
+  import { cart, removeFromCart, clearCart, addToCart } from '$lib';
   import { onMount } from 'svelte';
+  import {reveal} from 'svelte-reveal';
 
   // Get the product ID from the URL parameters
   const productId = parseInt(page.params.id);
   
-  
+  let reviewSurname = ["Dite", "Ruzicka", "Hajek", "Walichnowski", "Sykorova", "Dobias", "Dohnal", "Klos"]
+  let reviewFirstName = ["David", "Tomas", "Daniel", "Tymek", "Elisabeth", "Pavel", "Jarda", "Miroslav"]
+  let reviewRatingLowest = 0;
+  let reviewRatingHighest = 5;
+
+  function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function getRandomName() {
+    const firstName = reviewFirstName[Math.floor(Math.random() * reviewFirstName.length)];
+    const surname = reviewSurname[Math.floor(Math.random() * reviewSurname.length)];
+    return `${firstName} ${surname}`;
+  }
+
+  // Create an array of reviews with random names and ratings
+  let reviews = [
+    {
+      name: getRandomName(),
+      text: "I HATE THIS SO MUCH",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    },
+    {
+      name: getRandomName(),
+      text: "This product exceeded my expectations!",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    },
+    {
+      name: getRandomName(),
+      text: "Not worth the price, quite disappointed",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    },
+    {
+      name: getRandomName(),
+      text: "Good quality but delivery took too long",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    },
+    {
+      name: getRandomName(),
+      text: "Perfect fit and comfortable to wear",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    }
+  ];
+
+
   let images = [1,2,3];
   let chosenImage = 1;
+
   // Find the product that matches the ID
   const product = products.find(p => p.id === productId) || {
     id: productId,
@@ -37,6 +83,7 @@
   let quantity = 1;
   let isAddedToCart = false;
   let isInWishlist = false;
+  let isCartTabShown = false;
 
   // Function to go back to the products page
   function goBack() {
@@ -53,8 +100,15 @@
     setTimeout(() => {
       isAddedToCart = false;
     }, 2000);
+
+    isCartTabShown = true;
+    console.log("Current cart:", $cart);
   };
 
+  // Handle updating cart
+  let total = 0;
+  $: total = $cart.reduce((sum, item) => sum + item.quantity * parseFloat(item.price.replace("$", "")), 0);  // Calculate total whenever cart updates
+  
   // Function to toggle wishlist
   function toggleWishlist() {
     isInWishlist = !isInWishlist;
@@ -71,16 +125,40 @@
 
 </script>
 
+<div class="cart-tab {isCartTabShown ? 'open' : ''}">
+  <h2>Your Cart</h2>
+  {#if $cart.length > 0}
+    {#each $cart as item}
+      <div class ="cart-item">
+        <p>{item.name} x {item.quantity} - ${(item.quantity * parseFloat(item.price.replace("$", ""))).toFixed(2)}</p>
+        <p><img class="cart-item-image" 
+        src={item.image} 
+        alt={item.name} />
+        <button on:click={() => removeFromCart(item.id)}>Remove</button></p>
+      </div>
+      <hr class="cart-divider-line" />
+    {/each}
+    <p>Total: ${total.toFixed(2)}</p>
+    <button on:click={clearCart}>Clear Cart</button>
+  {:else}
+    <p>Your cart is empty.</p>
+  {/if}
+  <button class="view-cart" on:click={() => goto('/cart')}>View Cart</button>
+  <button class="close-cart" on:click={() => isCartTabShown = false}>Close Cart</button>
+</div>
+
 <div class="product-detail-container">
+
   <nav class="breadcrumbs">
     <button class="back-button" on:click={goBack}>&lt;&nbsp;&nbsp;Back to Products</button>
     <div class="breadcrumb-path">Products / {product.name}</div>
+
   </nav>
 
   <div class="product-content">
-    <div class="product-image-section">
+    <div class="product-image-section" use:reveal={{ preset: "slide", delay: 200 }}>
       <div 
-        class="product-image-container" 
+        class="product-image-container" use:reveal={{ preset: "slide", delay: 250 }}
       >
       {#if chosenImage === 1}
         <img 
@@ -104,7 +182,7 @@
         />
         {/if}
       </div>
-      <div class="thumbnail-gallery">
+      <div class="thumbnail-gallery" use:reveal={{ preset: "slide"   }}>
         <div 
             class="thumbnail-item {chosenImage === 1 ? 'active' : ''}"
             on:click={() => chosenImage = 1}
@@ -126,7 +204,7 @@
       </div>
     </div>
     
-    <div class="product-info">
+    <div class="product-info" use:reveal={{ preset: "slide", delay: 300 }}>
       <h1>{product.name}</h1>
       
       <div class="product-meta">
@@ -209,65 +287,19 @@
 
 <h1 class = "reviews">Customer Reviews</h1>
 <div class="review-container">
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
-
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
-
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
-
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
-
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
+  {#each reviews as review}
+    <div class="review-bubble">
+      <h2 class="review-name">
+        {review.name.toUpperCase()}
+      </h2>
+      <p class="review-text">{review.text}</p>
+      <div class="stars-review">
+        {#each Array(5) as _, i}
+          <span class="review-stars-individual">{i < review.rating ? '★' : '☆'}</span>
+        {/each}
+      </div>
+    </div>
+  {/each}
 </div>
 <style>
   /* Main Layout */
@@ -278,7 +310,7 @@
    
     color: var(--text-color);
   }
-  
+
   .reviews{
     text-align: center;
   }
@@ -287,8 +319,8 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto, auto, auto;
     gap: 3rem;
-    padding: 1rem;
-    margin: 1rem;
+    padding: 2rem 5.5rem;
+    margin: 0 auto;
   }
   .review-bubble{
     background-color: rgb(54, 36, 58);
@@ -329,7 +361,8 @@
     cursor: pointer;
     padding: 0.5rem 0;
     transition: color 0.2s ease;
-    font-family: 'Unbounded', system-ui, sans-serif;
+    font-family: var(--font-family);
+
   }
   
   .back-button:hover {
@@ -355,7 +388,7 @@
   
   .product-image-container {
     position: relative;
-    background-color: var(--text-color);
+    background-color: rgba(245, 245, 245, 0.055);
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 1rem;
@@ -369,7 +402,6 @@
     transition: transform 0.4s ease;
   }
   
- 
   
   .thumbnail-gallery {
     display: flex;
@@ -588,7 +620,7 @@
     margin-top: 1rem;
   }
   
-  .add-to-cart, .add-to-wishlist {
+  .add-to-cart{
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     font-size: 0.95rem;
@@ -596,6 +628,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
     border: none;
+    font-family: var(--font-family);
   } 
   
   .add-to-cart {
@@ -630,6 +663,64 @@
     border-color: #ffcdd2;
   } */
   
+  /* Cart tab */
+  .cart-tab {
+  color:#000;
+  position: fixed;
+  top: 0;
+  right: -600px; /* Initially hidden off-screen */
+  width: 600px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 2;
+}
+
+  .cart-tab.open {
+  right: 0; 
+}
+
+  .view-cart, .close-cart{
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background-color: var(--text-color);
+    color: var(--background-color);
+
+  }
+  
+  .view-cart:hover, .close-cart:hover{
+    background-color: var(--primary-color);
+  }
+
+  .cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cart-item-image {
+  width: 200px;
+  height: 200px;
+  object-fit: fill;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-divider-line {
+  width: 100%;
+  border: none;
+  border-top: 3px solid #ccc; /* Divider styling */
+  margin: 10px 0; /* Space above and below the line */
+}
   /* Responsive Design */
   @media (max-width: 768px) {
     .product-content {
@@ -683,4 +774,5 @@
       font-size: 1.25rem;
     }
   }
+
 </style>
