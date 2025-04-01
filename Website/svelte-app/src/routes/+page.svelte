@@ -25,7 +25,14 @@
           <li use:reveal={{ preset: "slide", delay: 350 }}><button on:click={() => chosenCategory ="misc"}>MISC</button></li>
       </ul>
   </nav>
+<<<<<<< HEAD
   <div class="search-container" use:reveal={{ preset: "slide", delay: 400 }}>
+=======
+  <div class="cart-container">
+    <a href="/cart">CART</a>
+  </div>
+  <div class="search-container">
+>>>>>>> 19a747a38fa0165a8cc48506bee766bb90c807f9
       <input 
           type="search" bind:value={searchText}
           placeholder="Search..."

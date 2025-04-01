@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
- export let selectedProduct = writable(null);
+ export let product = writable(null);
 
 // Array of products (same as in the main page)
 export const products = [

@@ -1,7 +1,8 @@
 <script>
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
-  import { products } from '$lib';
+  import { products} from '$lib';
+  import { addToCart } from '$lib';
   import { onMount } from 'svelte';
 
   // Get the product ID from the URL parameters
@@ -43,12 +44,16 @@
   }
 
   // Function to handle adding to cart
-  function addToCart() {
+  const handleAddToCart = () => {
+    // Tymek Code
+    addToCart(product, quantity);
+
+    // David Code
     isAddedToCart = true;
     setTimeout(() => {
       isAddedToCart = false;
     }, 2000);
-  }
+  };
 
   // Function to toggle wishlist
   function toggleWishlist() {
@@ -68,8 +73,8 @@
 
 <div class="product-detail-container">
   <nav class="breadcrumbs">
-    <button class="back-button" on:click={goBack}>&lt;&nbsp;&nbsp; Back to Products</button>
-    <div class="breadcrumb-path"> <a href="/">Products</a> / {product.name}</div>
+    <button class="back-button" on:click={goBack}>← Back to Products</button>
+    <div class="breadcrumb-path">Home / Products / {product.name}</div>
   </nav>
 
   <div class="product-content">
@@ -184,10 +189,19 @@
       <div class="actions">
         <button 
           class="add-to-cart {isAddedToCart ? 'added' : ''}" 
-          on:click={addToCart}
+          on:click={handleAddToCart}
         >
           {isAddedToCart ? '✓ Added to Cart' : 'Add to Cart'}
         </button>
+
+        <!-- Need to add way to view cart after adding item -Tymek -->
+        <!-- <button 
+          class="add-to-wishlist {isInWishlist ? 'in-wishlist' : ''}" 
+          on:click={toggleWishlist}
+        >
+          {isInWishlist ? '❤ In Wishlist' : 'Add to Wishlist'}
+        </button> -->
+
       </div>
     </div>
   </div>
@@ -315,7 +329,7 @@
     cursor: pointer;
     padding: 0.5rem 0;
     transition: color 0.2s ease;
-    font-family: var(--font-family);
+    --font-family: 'Unbounded', system-ui, sans-serif;
   }
   
   .back-button:hover {
@@ -574,7 +588,7 @@
     margin-top: 1rem;
   }
   
-  .add-to-cart {
+  .add-to-cart, .add-to-wishlist {
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     font-size: 0.95rem;
@@ -582,11 +596,12 @@
     cursor: pointer;
     transition: all 0.2s ease;
     border: none;
-
+  } 
+  
+  .add-to-cart {
     background-color: var(--text-color);
     color: var(--backround-color);
     flex: 2;
-    font-family: var(--font-family);
   }
   
   .add-to-cart:hover {
@@ -598,7 +613,22 @@
     color: var(--text-color);
   }
   
+  /* .add-to-wishlist {
+    background-color: #f5f5f5;
+    color: #666;
+    flex: 1;
+    border: 1px solid #e0e0e0;
+  }
   
+  .add-to-wishlist:hover {
+    background-color: #eaeaea;
+  }
+  
+  .add-to-wishlist.in-wishlist {
+    background-color: #ffebee;
+    color: var(--primary-color);
+    border-color: #ffcdd2;
+  } */
   
   /* Responsive Design */
   @media (max-width: 768px) {
