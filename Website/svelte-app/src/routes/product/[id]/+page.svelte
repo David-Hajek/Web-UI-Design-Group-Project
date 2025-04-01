@@ -118,8 +118,8 @@
 
 <div class="product-detail-container">
   <nav class="breadcrumbs"use:reveal={{ preset: "slide", delay: 50 }}>
-    <button class="back-button" use:reveal={{ preset: "slide", delay: 100 }} on:click={goBack}>← Back to Products</button>
-    <div class="breadcrumb-path" use:reveal={{ preset: "slide", delay: 150 }}>Home / Products / {product.name}</div>
+    <button class="back-button" use:reveal={{ preset: "slide", delay: 100 }} on:click={goBack}>&lt;&nbsp;&nbsp;Back to Products</button>
+    <div class="breadcrumb-path" use:reveal={{ preset: "slide", delay: 150 }}>Products / {product.name}</div>
   </nav>
 
   <div class="product-content">
@@ -277,7 +277,7 @@
    
     color: var(--text-color);
   }
-  
+
   .reviews{
     text-align: center;
   }
@@ -328,7 +328,7 @@
     cursor: pointer;
     padding: 0.5rem 0;
     transition: color 0.2s ease;
-    --font-family: 'Unbounded', system-ui, sans-serif;
+    font-family: var(--font-family);
   }
   
   .back-button:hover {

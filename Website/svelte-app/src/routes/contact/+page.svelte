@@ -62,7 +62,7 @@
             height: 100%;
             font-family: var(--font-family);
             background-color: rgba(0, 0, 0, 0);
-            border-width: 1px;
+            border-width: 2px;
             border-color: var(--text-color);
             border-radius: 10px; /*adds rounded corners */
             padding: 10px; /*adds spacing inside the fields */
@@ -121,7 +121,7 @@
             height: 100%;
             font-family: var(--font-family);
             background-color: rgba(0, 0, 0, 0);
-            border-width: 1px;
+            border-width: 1.5px;
             border-color: var(--text-color);
             border-radius: 10px; /*adds rounded corners */
             padding: 10px; /*adds spacing inside the fields */
@@ -136,7 +136,7 @@
         form p > input:focus,
         form p > textarea:focus {
             outline: none; /* Removes the default browser outline */
-            border: 1px solid var(--primary-color); /* Adds a custom border color */
+            border: 1.5px solid var(--primary-color); /* Adds a custom border color */
             background-color: rgba(0, 0, 0, 0.05); /* Changes the background slightly */
             caret-color: var(--text-color); /* Stylizes the blinking | cursor */
             color: var(--text-color);
