@@ -1,5 +1,6 @@
 <script>
     let searchQuery = '';
+    import { reveal } from 'svelte-reveal';
     
     function handleSearch(event) {
         if (event.key === 'Enter') {
@@ -113,6 +114,8 @@
         bottom: 0;
         width: 100%;
     }
-
+    @media (max-width: 768px){
+      
+    }
 
 </style>

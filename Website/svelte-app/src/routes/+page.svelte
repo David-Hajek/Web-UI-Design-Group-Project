@@ -1,6 +1,7 @@
 <script>
 	import { goto } from "$app/navigation";
   import { products } from '$lib';
+  import { reveal } from 'svelte-reveal';
     
     // Navigation function to product detail page
     function navigateToProduct(id) {
@@ -9,21 +10,22 @@
 
     let chosenCategory = "all";
     let searchText = "";
+    let gridReveal = 200;
 
 </script>
 <div class="nav-search-container">
   <nav>
       <ul>
-          <li><button on:click={() => chosenCategory ="all"}  >ALL</button></li> <!-- set chosenCategory based on which button is clicked -->
-          <li><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
-          <li><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
-          <li><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
-          <li><button on:click={() => chosenCategory ="pants"}>PANTS</button></li>
-          <li><button on:click={() => chosenCategory ="boots"}>BOOTS</button></li>
-          <li><button on:click={() => chosenCategory ="misc"}>MISC</button></li>
+          <li use:reveal={{ preset: "slide", delay: 50 }}><button on:click={() => chosenCategory ="all"}  >ALL</button></li> <!-- set chosenCategory based on which button is clicked -->
+          <li use:reveal={{ preset: "slide", delay: 100}}><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: 150 }}><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
+          <li use:reveal={{ preset: "slide", delay: 200 }}><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
+          <li use:reveal={{ preset: "slide", delay: 250 }}><button on:click={() => chosenCategory ="pants"}>PANTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: 300 }}><button on:click={() => chosenCategory ="boots"}>BOOTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: 350 }}><button on:click={() => chosenCategory ="misc"}>MISC</button></li>
       </ul>
   </nav>
-  <div class="search-container">
+  <div class="search-container" use:reveal={{ preset: "slide", delay: 400 }}>
       <input 
           type="search" bind:value={searchText}
           placeholder="Search..."
@@ -40,22 +42,23 @@
 </div>
   <main>
     
-    <h1>Clothing Collection</h1>
+    <h1 use:reveal={{ preset: "slide", delay: 450 }}>Clothing Collection</h1>
     
-    <div class="grid">
+    <div class="grid" use:reveal={{ preset: "slide", delay: 500, threshold: 0.1 }}>
       <!-- Use {#each} to iterate through products -->
       {#each products as product}
         {#each product.category as category} <!-- go through the list of categories for each item, and if the category is equal to the one that has been selected, show those items -->
           {#if category === chosenCategory}
               {#if !searchText || product.name.toLowerCase().includes(searchText.toLowerCase())} <!-- if searching, check for similarity and only show items that include the search string -->
-                <div 
+                
+              <div 
                   class="grid-item" 
                   on:click={() => navigateToProduct(product.id)} 
                   on:keydown={(e) => e.key === 'Enter' && navigateToProduct(product.id)}
                   role="button" 
                   tabindex="0"
                 >
-                  <div class="image-container">
+                  <div class="image-container" >
                     <img src={product.image} alt="{product.name}" />
                   </div>
                   <h3>{product.name}</h3>

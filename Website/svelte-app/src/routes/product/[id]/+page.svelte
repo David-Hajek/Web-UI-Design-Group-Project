@@ -188,17 +188,73 @@
         >
           {isAddedToCart ? '✓ Added to Cart' : 'Add to Cart'}
         </button>
-        <!-- <button 
-          class="add-to-wishlist {isInWishlist ? 'in-wishlist' : ''}" 
-          on:click={toggleWishlist}
-        >
-          {isInWishlist ? '❤ In Wishlist' : 'Add to Wishlist'}
-        </button> -->
       </div>
     </div>
   </div>
 </div>
 
+<h1 class = "reviews">Customer Reviews</h1>
+<div class="review-container">
+<div class="review-bubble">
+  <h2 class ="review-name">
+    TOMAS DITE
+  </h2>
+  <p class ="review-text">I HATE THIS SO MUCH</p>
+  <div class="stars-review">
+    {#each Array(5) as _, i}
+      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
+    {/each}
+</div>
+</div>
+
+<div class="review-bubble">
+  <h2 class ="review-name">
+    TOMAS DITE
+  </h2>
+  <p class ="review-text">I HATE THIS SO MUCH</p>
+  <div class="stars-review">
+    {#each Array(5) as _, i}
+      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
+    {/each}
+</div>
+</div>
+
+<div class="review-bubble">
+  <h2 class ="review-name">
+    TOMAS DITE
+  </h2>
+  <p class ="review-text">I HATE THIS SO MUCH</p>
+  <div class="stars-review">
+    {#each Array(5) as _, i}
+      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
+    {/each}
+</div>
+</div>
+
+<div class="review-bubble">
+  <h2 class ="review-name">
+    TOMAS DITE
+  </h2>
+  <p class ="review-text">I HATE THIS SO MUCH</p>
+  <div class="stars-review">
+    {#each Array(5) as _, i}
+      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
+    {/each}
+</div>
+</div>
+
+<div class="review-bubble">
+  <h2 class ="review-name">
+    TOMAS DITE
+  </h2>
+  <p class ="review-text">I HATE THIS SO MUCH</p>
+  <div class="stars-review">
+    {#each Array(5) as _, i}
+      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
+    {/each}
+</div>
+</div>
+</div>
 <style>
   /* Main Layout */
   .product-detail-container {
@@ -209,6 +265,39 @@
     color: var(--text-color);
   }
   
+  .reviews{
+    text-align: center;
+  }
+  .review-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto, auto, auto;
+    gap: 3rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .review-bubble{
+    background-color: rgb(54, 36, 58);
+    border-radius: 20px;
+  }
+  .review-name{
+    text-align: center;
+    padding: 1rem;
+  }
+  .review-text{
+    text-align: center;
+  }
+  .stars-review{
+
+  margin: auto;
+  padding: 1rem;
+  }
+
+  .review-stars-individual{
+    color: var(--primary-color);
+    font-size: 5rem;
+    line-height: 1;
+  }
   .breadcrumbs {
     display: flex;
     justify-content: space-between;
