@@ -158,7 +158,7 @@
 
     .search-container input {
         background-color: var(--backround-color);
-        border: 1px solid var(--secondary-color);
+        border: 2px solid var(--secondary-color);
         border-radius: 6px;
         padding: 0.5rem 2.5rem 0.5rem 1rem;
         color: var(--text-color);
