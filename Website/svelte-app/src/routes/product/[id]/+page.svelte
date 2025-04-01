@@ -155,10 +155,10 @@
 
   </nav>
 
-  <div class="product-content">
-    <div class="product-image-section" use:reveal={{ preset: "slide", delay: 200 }}>
+  <div class="product-content" use:reveal={{ preset: "slide"}}>
+    <div class="product-image-section" > <!--use:reveal={{ preset: "slide"}}-->
       <div 
-        class="product-image-container" use:reveal={{ preset: "slide", delay: 250 }}
+        class="product-image-container"
       >
       {#if chosenImage === 1}
         <img 
@@ -182,7 +182,7 @@
         />
         {/if}
       </div>
-      <div class="thumbnail-gallery" use:reveal={{ preset: "slide"   }}>
+      <div class="thumbnail-gallery" use:reveal={{ preset: "slide"}}>
         <div 
             class="thumbnail-item {chosenImage === 1 ? 'active' : ''}"
             on:click={() => chosenImage = 1}
@@ -204,7 +204,7 @@
       </div>
     </div>
     
-    <div class="product-info" use:reveal={{ preset: "slide", delay: 300 }}>
+    <div class="product-info"> <!--se:reveal={{ preset: "slide", delay: 100 }}-->
       <h1>{product.name}</h1>
       
       <div class="product-meta">
@@ -349,7 +349,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: solid var(--text-color);
+    border-bottom-width: var(--line-width);
     padding-bottom: 1rem;
   }
   
@@ -357,7 +358,7 @@
     background: none;
     border: none;
     color: var(--text-color);
-    font-size: 0.9rem;
+    font-size: var(--nav-text-size);
     cursor: pointer;
     padding: 0.5rem 0;
     transition: color 0.2s ease;
@@ -366,11 +367,11 @@
   }
   
   .back-button:hover {
-    color: #000;
+    color: var(--primary-color);
   }
   
   .breadcrumb-path {
-    font-size: 0.85rem;
+    font-size: var(--nav-text-size);
     color: var(--text-color);
   }
   
@@ -645,23 +646,6 @@
     background-color: var(--primary-color);
     color: var(--text-color);
   }
-  
-  /* .add-to-wishlist {
-    background-color: #f5f5f5;
-    color: #666;
-    flex: 1;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .add-to-wishlist:hover {
-    background-color: #eaeaea;
-  }
-  
-  .add-to-wishlist.in-wishlist {
-    background-color: #ffebee;
-    color: var(--primary-color);
-    border-color: #ffcdd2;
-  } */
   
   /* Cart tab */
   .cart-tab {

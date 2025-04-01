@@ -9,7 +9,8 @@
 
     --font-family: 'Unbounded', system-ui, sans-serif;
     --base-font-size: 18px;
-    --line-size: 2px;
+    --nav-text-size: 16px;
+    --line-width: 2px;
 }
 *{
     margin:0;

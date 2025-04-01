@@ -10,23 +10,23 @@
 
     let chosenCategory = "all";
     let searchText = "";
-    let gridReveal = 200;
+    let categoryDelay = 60;
 
 </script>
 <div class="nav-search-container">
   <nav>
       <ul>
-          <li use:reveal={{ preset: "slide", delay: 50 }}><button on:click={() => chosenCategory ="all"}  >ALL</button></li> <!-- set chosenCategory based on which button is clicked -->
-          <li use:reveal={{ preset: "slide", delay: 100}}><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
-          <li use:reveal={{ preset: "slide", delay: 150 }}><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
-          <li use:reveal={{ preset: "slide", delay: 200 }}><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
-          <li use:reveal={{ preset: "slide", delay: 250 }}><button on:click={() => chosenCategory ="pants"}>PANTS</button></li>
-          <li use:reveal={{ preset: "slide", delay: 300 }}><button on:click={() => chosenCategory ="boots"}>BOOTS</button></li>
-          <li use:reveal={{ preset: "slide", delay: 350 }}><button on:click={() => chosenCategory ="misc"}>MISC</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay }}><button on:click={() => chosenCategory ="all"}  >ALL</button></li> <!-- set chosenCategory based on which button is clicked -->
+          <li use:reveal={{ preset: "slide", delay: categoryDelay*2}}><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay*3 }}><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay *4 }}><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay *5 }}><button on:click={() => chosenCategory ="pants"}>PANTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay*6 }}><button on:click={() => chosenCategory ="boots"}>BOOTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay*7 }}><button on:click={() => chosenCategory ="misc"}>MISC</button></li>
       </ul>
   </nav>
 
-  <div class="search-container" use:reveal={{ preset: "slide", delay: 400 }}>
+  <div class="search-container" use:reveal={{ preset: "slide", delay: categoryDelay*8}}>
   <div class="cart-container">
     <a href="/cart">CART</a>
   </div>
@@ -48,9 +48,9 @@
 </div>
   <main>
     
-    <h1 use:reveal={{ preset: "slide", delay: 450 }}>Clothing Collection</h1>
+    <h1>PRODUCTS</h1> <!--use:reveal={{ preset: "slide" }}-->
     
-    <div class="grid" use:reveal={{ preset: "slide", delay: 500, threshold: 0.1 }}>
+    <div class="grid" use:reveal={{ preset: "slide", threshold: 0.1}}>
       <!-- Use {#each} to iterate through products -->
       {#each products as product}
         {#each product.category as category} <!-- go through the list of categories for each item, and if the category is equal to the one that has been selected, show those items -->
@@ -154,15 +154,17 @@
         align-items: center;
         margin-left: 2rem;
         position: relative;
+        font-size: var(--nav-text-size);
     }
 
     .search-container input {
         background-color: var(--backround-color);
         border: 2px solid var(--secondary-color);
+        border-width: var(--line-width);
         border-radius: 6px;
         padding: 0.5rem 2.5rem 0.5rem 1rem;
         color: var(--text-color);
-        font-size: 0.9rem;
+        font-size: var(--nav-text-size);
         width: 200px;
         transition: all 0.3s ease;
         font-family: 'Unbounded', system-ui, sans-serif;
