@@ -8,7 +8,51 @@
   // Get the product ID from the URL parameters
   const productId = parseInt(page.params.id);
   
-  
+  let reviewSurname = ["Dite", "Ruzicka", "Hajek", "Walichnowski", "Sykorova", "Dobias", "Dohnal", "Klos"]
+  let reviewFirstName = ["David", "Tomas", "Daniel", "Tymek", "Elisabeth", "Pavel", "Jarda", "Miroslav"]
+  let reviewRatingLowest = 0;
+  let reviewRatingHighest = 5;
+
+  function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function getRandomName() {
+    const firstName = reviewFirstName[Math.floor(Math.random() * reviewFirstName.length)];
+    const surname = reviewSurname[Math.floor(Math.random() * reviewSurname.length)];
+    return `${firstName} ${surname}`;
+  }
+
+  // Create an array of reviews with random names and ratings
+  let reviews = [
+    {
+      name: getRandomName(),
+      text: "I HATE THIS SO MUCH",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    },
+    {
+      name: getRandomName(),
+      text: "This product exceeded my expectations!",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    },
+    {
+      name: getRandomName(),
+      text: "Not worth the price, quite disappointed",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    },
+    {
+      name: getRandomName(),
+      text: "Good quality but delivery took too long",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    },
+    {
+      name: getRandomName(),
+      text: "Perfect fit and comfortable to wear",
+      rating: getRandomArbitrary(reviewRatingLowest, reviewRatingHighest)
+    }
+  ];
+
+
   let images = [1,2,3];
   let chosenImage = 1;
   // Find the product that matches the ID
@@ -209,65 +253,19 @@
 
 <h1 class = "reviews">Customer Reviews</h1>
 <div class="review-container">
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
-
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
-
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
-
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
-
-<div class="review-bubble">
-  <h2 class ="review-name">
-    TOMAS DITE
-  </h2>
-  <p class ="review-text">I HATE THIS SO MUCH</p>
-  <div class="stars-review">
-    {#each Array(5) as _, i}
-      <span class="review-stars-individual">{i < 3 ? '★' : (i < 2 ? '★' : '☆')}</span>
-    {/each}
-</div>
-</div>
+  {#each reviews as review}
+    <div class="review-bubble">
+      <h2 class="review-name">
+        {review.name.toUpperCase()}
+      </h2>
+      <p class="review-text">{review.text}</p>
+      <div class="stars-review">
+        {#each Array(5) as _, i}
+          <span class="review-stars-individual">{i < review.rating ? '★' : '☆'}</span>
+        {/each}
+      </div>
+    </div>
+  {/each}
 </div>
 <style>
   /* Main Layout */
@@ -287,8 +285,8 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto, auto, auto;
     gap: 3rem;
-    padding: 1rem;
-    margin: 1rem;
+    padding: 2rem 5.5rem;
+    margin: 0 auto;
   }
   .review-bubble{
     background-color: rgb(54, 36, 58);
@@ -355,7 +353,7 @@
   
   .product-image-container {
     position: relative;
-    background-color: var(--text-color);
+    background-color: rgba(245, 245, 245, 0.055);
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 1rem;
