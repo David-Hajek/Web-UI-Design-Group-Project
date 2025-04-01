@@ -1,19 +1,11 @@
 <script>
-  import { cart } from '$lib';
+import { cart, removeFromCart, clearCart } from '$lib';
   
     // Reactive total calculation
     $: total = $cart.reduce(
       (sum, item) => sum + item.quantity * parseFloat(item.price.replace("$", "")),
       0
     );
-  
-    const removeFromCart = (productId) => {
-      cart.update((items) => items.filter((item) => item.id !== productId));
-    };
-  
-    const clearCart = () => {
-      cart.set([]);
-    };
   </script>
   
   <div>

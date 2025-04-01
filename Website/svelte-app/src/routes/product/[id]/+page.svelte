@@ -2,7 +2,7 @@
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
   import { products} from '$lib';
-  import { cart, addToCart } from '$lib';
+  import { addToCart } from '$lib';
   import { onMount } from 'svelte';
 
   // Get the product ID from the URL parameters
@@ -193,6 +193,7 @@
         >
           {isAddedToCart ? '✓ Added to Cart' : 'Add to Cart'}
         </button>
+        <!-- Need to add way to view cart after adding item -Tymek -->
         <!-- <button 
           class="add-to-wishlist {isInWishlist ? 'in-wishlist' : ''}" 
           on:click={toggleWishlist}
