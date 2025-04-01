@@ -105,7 +105,6 @@
       border-radius: 8px;
       padding: 1rem;
       cursor: pointer;
-      background-color: var(--text-color);
     }
     
     .grid-item:hover {
@@ -140,7 +139,7 @@
     }
     
     h3 {
-      color: #000000;
+      color: var(--text-color);
       margin: 0.5rem 0;
       font-weight: 500;
     }
