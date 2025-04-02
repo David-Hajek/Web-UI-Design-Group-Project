@@ -25,6 +25,7 @@ body{
     color: var(--text-color);
     background-color: var(--backround-color);
     line-height: 1.5;
+    border-width: var(--line-size);
 }
 h1,h2,h3,h4,h5,h6{
     font-weight: bold;

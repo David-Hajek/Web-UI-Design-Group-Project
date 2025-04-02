@@ -142,6 +142,7 @@
 
         form p > input:focus,
         form p > textarea:focus {
+
             outline: none; /* removes the default browser outline */
             border: solid var(--primary-color); 
             border-width: var(--line-width);
