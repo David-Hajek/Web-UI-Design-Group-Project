@@ -105,27 +105,37 @@
       border-radius: 8px;
       padding: 1rem;
       cursor: pointer;
+      height: 450px;
     }
     
     .grid-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       background-color: var(--primary-color);
     }
 
     .grid-item:focus {
-      outline: 2px solid var(--text-color);
       background-color: var(--secondary-color);
     }
     
     .image-container {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      aspect-ratio: 1;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+    position: relative;
+    overflow: visible; /* Ensure the blur is not cut off */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+}
+
+    .image-container img {
+    transition: transform 0.3s ease, filter 0.3s ease; 
+    filter: drop-shadow(0 0 20px var(--text-color)); /* could be removed, but it might cause it to be unreadable */
     }
+
+    .image-container img:hover {
+    transform: scale(1.1); 
+    filter: drop-shadow(0 0 10px var(--lighter-primary-color)); /* glow effect */
+    }
+    
     
     img {
       width: 100%;
@@ -134,8 +144,9 @@
       transition: transform 0.5s ease;
     }
     
-    .grid-item:hover img {
-      transform: scale(1.05);
+    .grid-item:hover {
+    background: radial-gradient(circle, var(--lighter-primary-color) 0%, var(--backround-color) 0%);
+    border: none; /* Remove solid borders */
     }
     
     h3 {

@@ -70,7 +70,7 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy", "Gray"],
-      category: ["all","shirts"]
+      category: ["all","boots"]
     },
     { id: 6, name: "Daily Boots", price: "$29.99", image:"/images/clothing/boots/daily.png",
       originalPrice: "$39.99", rating: 4.4, reviewCount: 76,
@@ -83,7 +83,7 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy"],
-      category: ["all","shirts"]
+      category: ["all","boots"]
     },
     { id: 7, name: "Cat Stare Hoodies", price: "$32.99", image:"/images/clothing/hoodies/cat_stare.png",
       originalPrice: "$42.99", rating: 4.5, reviewCount: 92,
@@ -95,7 +95,7 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy"],
-      category: ["all","shirts"]
+      category: ["all","hoodies"]
     },
     { id: 8, name: "Swept Sweater", price: "$32.99", image:"/images/clothing/sweaters/swept.png",
       originalPrice: "$42.99", rating: 4.3, reviewCount: 67,
@@ -107,7 +107,7 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy"],
-      category: ["all","shirts"]
+      category: ["all","sweaters"]
     },
     { id: 9, name: "Bug Sweater", price: "$27.99", image:"/images/clothing/sweaters/bug.png",
        rating: 4.7, reviewCount: 103,
@@ -119,7 +119,7 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy", "Red"],
-      category: ["all","shirts"]
+      category: ["all","sweaters"]
     },
     { id: 10, name: "Hearts Totebag", price: "$32.99", image:"/images/clothing/accessories/hearts.png",
       originalPrice: "$42.99", rating: 4.6, reviewCount: 88,
