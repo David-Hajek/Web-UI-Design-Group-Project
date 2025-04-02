@@ -21,12 +21,27 @@
 
     <div class="content">
     <h1>ABOUT</h1>
-    <p use:reveal={{ preset: "slide"}}>We love making websites, it is our passion and we love making websites really, we do</p>
+    <p use:reveal={{ preset: "slide"}}>Welcome to MerchVerse – your ultimate destination for unique and high-quality merchandise! Whether you're a pop culture fanatic, a gaming enthusiast, or someone who loves expressing themselves through fashion, we’ve got something special for you.
+
+        <br><br>At MerchVerse, we believe that merchandise is more than just clothing and accessories – it's a way to showcase your personality, passions, and interests. Our team is dedicated to bringing you the trendiest and most creative designs, all while ensuring top-notch quality and comfort.
+        
+        <br><br>Our collection features a diverse range of apparel, accessories, and collectibles inspired by the latest trends, iconic franchises, and timeless classics. We work with talented artists and designers to curate exclusive pieces that you won’t find anywhere else.
+        
+       <br><br> Customer satisfaction is at the heart of everything we do. We are committed to providing a seamless shopping experience, from browsing our collections to receiving your order. If you ever have any questions or need assistance, our friendly support team is always here to help.
+        
+        <br><br>Thank you for choosing MerchVerse – where passion meets style. Explore our collection and let your personality shine!</p>
     </div>
     
     <style>
         h1{color: var(--text-color);}
-        p{font-size: 18px;}
+        p{font-size: 18px;
+        width: 30%;
+        align-content: left;
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        }
         button{
         background-color: rgba(0, 0, 0, 0); /*transparency*/
         border-color: rgba(0, 0, 0, 0);
