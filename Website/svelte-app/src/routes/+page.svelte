@@ -20,9 +20,9 @@
           <li use:reveal={{ preset: "slide", delay: categoryDelay*2}}><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
           <li use:reveal={{ preset: "slide", delay: categoryDelay*3 }}><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
           <li use:reveal={{ preset: "slide", delay: categoryDelay *4 }}><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay *5 }}><button on:click={() => chosenCategory ="pants"}>PANTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay *5 }}><button on:click={() => chosenCategory ="bottoms"}>BOTTOMS</button></li>
           <li use:reveal={{ preset: "slide", delay: categoryDelay*6 }}><button on:click={() => chosenCategory ="boots"}>BOOTS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*7 }}><button on:click={() => chosenCategory ="misc"}>MISC</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay*7 }}><button on:click={() => chosenCategory ="accessories"}>MISC</button></li>
       </ul>
   </nav>
 

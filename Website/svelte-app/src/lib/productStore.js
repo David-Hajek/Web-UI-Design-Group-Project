@@ -19,8 +19,8 @@ export const products = [
       colors: ["Black", "White", "Navy"],
       category: ["all","shirts"],
     },
-    { id: 2, name: "Casual T-Shirt", price: "$24.99", image: "/images/clothing/richard.webp", image2: "/images/clothing/shirt.png", image3: "/images/clothing/pavel.jfif",
-      originalPrice: "$34.99", rating: 4.5, reviewCount: 98,
+    { id: 2, name: "Havel T-Shirt", price: "1989,- CZK", image: "/images/clothing/shirts/havel.png", image2: "/images/clothing/shirt.png", image3: "/images/clothing/pavel.jfif",
+      originalPrice: "", rating: 4.5, reviewCount: 98,
       description: "This is a high-quality product made with premium materials. Perfect for everyday use, this product combines style and function in a seamless design.",
       features: [
         "Premium quality materials",
@@ -30,11 +30,11 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy"],
-      category: ["all","hoodies"]
+      category: ["all","shirts"]
     },
-    { id: 3, name: "Premium T-Shirt", price: "$34.99", image: "/images/clothing/dobik.jfif",
+    { id: 3, name: "Split Cargo Sweatpants", price: "$34.99", image: "/images/clothing/pants/black_and_white.png",
       originalPrice: "$44.99", rating: 4.9, reviewCount: 156,
-      description: "This premium t-shirt offers exceptional comfort and style for any occasion.",
+      description: "Stylish sweats.",
       features: [
         "Premium quality materials",
         "Durable construction",
@@ -44,9 +44,9 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy"],
-      category: ["all","hoodies"]
+      category: ["all","bottoms"]
     },
-    { id: 4, name: "Sport T-Shirt", price: "$27.99", image: "/images/clothing/pavel.jfif",
+    { id: 4, name: "Trusty Boots", price: "$27.99", image: "/images/clothing/boots/trusty.png",
       originalPrice: "$37.99", rating: 4.6, reviewCount: 112,
       description: "Designed for active lifestyles, this sport t-shirt keeps you cool and comfortable.",
       features: [
@@ -59,7 +59,7 @@ export const products = [
       colors: ["Black", "White", "Navy", "Red"],
       category: ["all","boots"]
     },
-    { id: 5, name: "Vintage T-Shirt", price: "$32.99", image: "/images/clothing/pavlik.png",
+    { id: 5, name: "Platform Boots", price: "$32.99", image: "/images/clothing/boots/tall.png",
       originalPrice: "$42.99", rating: 4.7, reviewCount: 89,
       description: "Classic vintage style with modern comfort and durability.",
       features: [
@@ -72,7 +72,7 @@ export const products = [
       colors: ["Black", "White", "Navy", "Gray"],
       category: ["all","shirts"]
     },
-    { id: 6, name: "Modern T-Shirt", price: "$29.99", 
+    { id: 6, name: "Daily Boots", price: "$29.99", image:"/images/clothing/boots/daily.png",
       originalPrice: "$39.99", rating: 4.4, reviewCount: 76,
       description: "Contemporary style for the fashion-conscious individual.",
       features: [
@@ -85,7 +85,7 @@ export const products = [
       colors: ["Black", "White", "Navy"],
       category: ["all","shirts"]
     },
-    { id: 7, name: "Vintage T-Shirt", price: "$32.99",
+    { id: 7, name: "Cat Stare Hoodies", price: "$32.99", image:"/images/clothing/hoodies/cat_stare.png",
       originalPrice: "$42.99", rating: 4.5, reviewCount: 92,
       description: "Another classic vintage option with a unique twist.",
       features: [
@@ -97,7 +97,7 @@ export const products = [
       colors: ["Black", "White", "Navy"],
       category: ["all","shirts"]
     },
-    { id: 8, name: "Vintage T-Shirt", price: "$32.99",
+    { id: 8, name: "Swept Sweater", price: "$32.99", image:"/images/clothing/sweaters/swept.png",
       originalPrice: "$42.99", rating: 4.3, reviewCount: 67,
       description: "Vintage-inspired design with modern comfort features.",
       features: [
@@ -109,8 +109,8 @@ export const products = [
       colors: ["Black", "White", "Navy"],
       category: ["all","shirts"]
     },
-    { id: 9, name: "Sport T-Shirt", price: "$27.99",
-      originalPrice: "$37.99", rating: 4.7, reviewCount: 103,
+    { id: 9, name: "Bug Sweater", price: "$27.99", image:"/images/clothing/sweaters/bug.png",
+       rating: 4.7, reviewCount: 103,
       description: "Performance t-shirt designed for active lifestyles.",
       features: [
         "Moisture-wicking",
@@ -121,7 +121,7 @@ export const products = [
       colors: ["Black", "White", "Navy", "Red"],
       category: ["all","shirts"]
     },
-    { id: 10, name: "Vintage T-Shirt", price: "$32.99",
+    { id: 10, name: "Hearts Totebag", price: "$32.99", image:"/images/clothing/accessories/hearts.png",
       originalPrice: "$42.99", rating: 4.6, reviewCount: 88,
       description: "Classic vintage look with premium quality materials.",
       features: [
@@ -131,7 +131,7 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy"],
-      category: ["all","shirts"]
+      category: ["all","accessories"]
     },
     { id: 11, name: "Modern T-Shirt", price: "$29.99",
       originalPrice: "$39.99", rating: 4.5, reviewCount: 79,
