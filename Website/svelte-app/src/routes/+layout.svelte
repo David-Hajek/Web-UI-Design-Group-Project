@@ -15,7 +15,7 @@
     <div class="logo-container">
     <a href="/">
         <img src="logo.png" alt="Logo" class="logo" />
-        <h1 id="title">Merchandise Website</h1>
+        <h1 id="title">D.E.T. MERCH</h1>
     </a>
     </div>
     
