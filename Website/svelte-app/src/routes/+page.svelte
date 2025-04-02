@@ -48,7 +48,7 @@
 </div>
   <main>
     
-    <h1>PRODUCTS</h1> <!--use:reveal={{ preset: "slide" }}-->
+    <h1>{chosenCategory.toUpperCase()}</h1> <!--use:reveal={{ preset: "slide" }}-->
     
     <div class="grid" use:reveal={{ preset: "slide", threshold: 0.1}}>
       <!-- Use {#each} to iterate through products -->
