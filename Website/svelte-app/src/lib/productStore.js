@@ -133,7 +133,7 @@ export const products = [
       colors: ["Black", "White", "Navy"],
       category: ["all","accessories"]
     },
-    { id: 11, name: "Modern T-Shirt", price: "$29.99",
+    { id: 11, name: "Pavlik Pants", price: "$29.99", image:"/images/clothing/pants/pavlik.png",
       originalPrice: "$39.99", rating: 4.5, reviewCount: 79,
       description: "Sleek, modern design for contemporary tastes.",
       features: [
@@ -143,9 +143,9 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy", "Green"],
-      category: ["all","shirts"]
+      category: ["all","bottoms"]
     },
-    { id: 12, name: "Vintage brambora", price: "$32.99",
+    { id: 12, name: "I <3 Kapr hoodie", price: "$32.99", image:"/images/clothing/hoodies/Hoodie_mockup_front.png", image2:"/images/clothing/hoodies/Hoodie_mockup_back.png",
       originalPrice: "$42.99", rating: 4.4, reviewCount: 71,
       description: "Another vintage option with unique styling elements.",
       features: [
@@ -155,6 +155,43 @@ export const products = [
       ],
       sizes: ["S", "M", "L", "XL"],
       colors: ["Black", "White", "Navy", "Brown"],
-      category: ["all","shirts"]
+      category: ["all","hoodies"]
+    },
+    { id: 13, name: "Artist Hat", price: "$32.99", image:"/images/clothing/accessories/artist-hat.png", image2:"/images/clothing/hoodies/Hoodie_mockup_back.png",
+      originalPrice: "$42.99", rating: 4.4, reviewCount: 71,
+      description: "Another vintage option with unique styling elements.",
+      features: [
+        "Classic vintage look",
+        "Soft, comfortable fabric",
+        "Durable construction"
+      ],
+      sizes: ["S", "M", "L", "XL"],
+      colors: ["Black", "White", "Navy", "Brown"],
+      category: ["all","accessories"]
+    },
+    { id: 14, name: "Kapr Pin", price: "$32.99", image:"/images/clothing/accessories/kapr-pin.png", image2:"/images/clothing/hoodies/Hoodie_mockup_back.png",
+      originalPrice: "$42.99", rating: 4.4, reviewCount: 71,
+      description: "Another vintage option with unique styling elements.",
+      features: [
+        "Classic vintage look",
+        "Soft, comfortable fabric",
+        "Durable construction"
+      ],
+      sizes: ["S", "M", "L", "XL"],
+      colors: ["Black", "White", "Navy", "Brown"],
+      category: ["all","accessories"]
+    },
+    { id: 15, name: "Pivo Socks", price: "$32.99", image:"/images/clothing/accessories/pivo.png", image2:"/images/clothing/hoodies/Hoodie_mockup_back.png",
+      originalPrice: "$42.99", rating: 4.4, reviewCount: 71,
+      description: "Another vintage option with unique styling elements.",
+      features: [
+        "Classic vintage look",
+        "Soft, comfortable fabric",
+        "Durable construction"
+      ],
+      sizes: ["S", "M", "L", "XL"],
+      colors: ["Black", "White", "Navy", "Brown"],
+      category: ["all","accessories"]
     }
+    
   ];

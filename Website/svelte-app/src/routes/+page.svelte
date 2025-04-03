@@ -123,12 +123,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 350px;
+    min-height: 350px;
 }
 
     .image-container img {
     transition: transform 0.3s ease, filter 0.3s ease; 
-    filter: drop-shadow(0 0 20px var(--text-color)); /* could be removed, but it might cause it to be unreadable */
+    filter: drop-shadow(0 0 50px rgba(144,144,144,0.35)); /* could be removed, but it might cause it to be unreadable */
     }
 
     .image-container img:hover {
