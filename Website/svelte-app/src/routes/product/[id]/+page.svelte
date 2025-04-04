@@ -126,11 +126,22 @@
 </script>
 
 <div class="cart-tab {isCartTabShown ? 'open' : ''}">
-  <h2>Your Cart</h2>
+  <h2>Your Cart
+  <button class="close-cart" on:click={() => isCartTabShown = false}>Close Cart</button> </h2>
   {#if $cart.length > 0}
     {#each $cart as item}
       <div class ="cart-item">
-        <p>{item.name} x {item.quantity} - ${(item.quantity * parseFloat(item.price.replace("$", ""))).toFixed(2)}</p>
+        <div>
+          <p>{item.name} x {item.quantity} - ${(item.quantity * parseFloat(item.price.replace("$", ""))).toFixed(2)}</p>
+        </div>
+        <div>
+        <h3>Quantity</h3>
+          <div class="quantity-selector">
+            <button class="quantity-button" on:click={decreaseQuantity}>-</button>
+            <span class="quantity-value">{quantity}</span>
+            <button class="quantity-button" on:click={increaseQuantity}>+</button>
+          </div>
+        </div>
         <p><img class="cart-item-image" 
         src={item.image} 
         alt={item.name} />
@@ -144,7 +155,6 @@
     <p>Your cart is empty.</p>
   {/if}
   <button class="view-cart" on:click={() => goto('/cart')}>View Cart</button>
-  <button class="close-cart" on:click={() => isCartTabShown = false}>Close Cart</button>
 </div>
 
 <div class="product-detail-container">
@@ -675,7 +685,11 @@
     border: none;
     background-color: var(--text-color);
     color: var(--background-color);
+    
+  }
 
+  .close-cart{
+    float: right;
   }
   
   .view-cart:hover, .close-cart:hover{
@@ -684,8 +698,9 @@
 
   .cart-item {
   display: flex;
+  margin-top: 10px;
   align-items: center;
-  margin-bottom: 10px;
+
 }
 
 .cart-item-image {
