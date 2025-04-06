@@ -2,7 +2,7 @@
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
   import { products} from '$lib';
-  import { cart, removeFromCart, clearCart, addToCart } from '$lib';
+  import { cart, removeFromCart, decreaseItemQuantity, increaseItemQuantity, clearCart, addToCart } from '$lib';
   import { onMount } from 'svelte';
   import {reveal} from 'svelte-reveal';
 
@@ -84,7 +84,7 @@
   let isAddedToCart = false;
   let isInWishlist = false;
   let isCartTabShown = false;
-
+  
   // Function to go back to the products page
   function goBack() {
     goto('/');
@@ -92,15 +92,20 @@
 
   // Function to handle adding to cart
   const handleAddToCart = () => {
-    // Tymek Code
+    
     addToCart(product, quantity);
 
-    // David Code
     isAddedToCart = true;
+    
     setTimeout(() => {
       isAddedToCart = false;
     }, 2000);
 
+    //Resetting Add To Cart Quantity
+    setTimeout(() => {
+      quantity = 1;;
+    }, 400);
+    
     isCartTabShown = true;
     console.log("Current cart:", $cart);
   };
@@ -108,20 +113,23 @@
   // Handle updating cart
   let total = 0;
   $: total = $cart.reduce((sum, item) => sum + item.quantity * parseFloat(item.price.replace("$", "")), 0);  // Calculate total whenever cart updates
+
   
+function decreaseQuantity() {
+  if (quantity > 1) quantity -= 1;
+}
+
+  // Handle quantity changes
+  function increaseQuantity() {
+  quantity += 1;
+}
+
   // Function to toggle wishlist
   function toggleWishlist() {
     isInWishlist = !isInWishlist;
   }
 
-  // Handle quantity changes
-  function decreaseQuantity() {
-    if (quantity > 1) quantity -= 1;
-  }
 
-  function increaseQuantity() {
-    quantity += 1;
-  }
 
 </script>
 
@@ -133,20 +141,22 @@
       <div class ="cart-item">
         <div>
           <p>{item.name} x {item.quantity} - ${(item.quantity * parseFloat(item.price.replace("$", ""))).toFixed(2)}</p>
-        </div>
-        <div>
-        <h3>Quantity</h3>
-          <div class="quantity-selector">
-            <button class="quantity-button" on:click={decreaseQuantity}>-</button>
-            <span class="quantity-value">{quantity}</span>
-            <button class="quantity-button" on:click={increaseQuantity}>+</button>
+          <div>
+            <div>
+              <h3>Quantity</h3>
+                <div class="quantity-selector">
+                  <button class="quantity-button" on:click={decreaseItemQuantity(item.id)}>-</button>
+                  <span class="quantity-value">{item.quantity}</span>
+                  <button class="quantity-button" on:click={increaseItemQuantity(item.id)}>+</button>
+                </div>
+                <button on:click={() => removeFromCart(item.id)}>Remove</button>
+              </div>
           </div>
         </div>
         <p><img class="cart-item-image" 
         src={item.image} 
         alt={item.name} />
-        <button on:click={() => removeFromCart(item.id)}>Remove</button></p>
-      </div>
+        </div>
       <hr class="cart-divider-line" />
     {/each}
     <p>Total: ${total.toFixed(2)}</p>
@@ -156,6 +166,7 @@
   {/if}
   <button class="view-cart" on:click={() => goto('/cart')}>View Cart</button>
 </div>
+
 
 <div class="product-detail-container">
 
