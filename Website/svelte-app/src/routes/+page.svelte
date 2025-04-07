@@ -27,9 +27,6 @@
   </nav>
 
   <div class="search-container" use:reveal={{ preset: "slide", delay: categoryDelay*8}}>
-  <div class="cart-container">
-    <a href="/cart">CART</a>
-  </div>
   <div class="search-container">
       <input 
           type="search" bind:value={searchText}
