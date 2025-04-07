@@ -5,7 +5,7 @@
 - The purpose of this website is to find new alternative Merch for people who wish to express themselves. It aims to combine great visuals with accessible, user-friendly features.
 3. Audience: Who is it for?
 - For people that are looking to buy some merchandise items.
-4. Live Site: ----
+4. Live Site: https://david-hajek.github.io/Web-UI-Design-Group-Project/
 
 🧠 Design Rationale
 5. Why did you choose this theme/topic?
@@ -53,9 +53,9 @@ Elisabeth Sykorova (elisabeth-sykorova):
 
 🚀 Deployment Notes
 15. GitHub Pages URL
-----
+https://david-hajek.github.io/Web-UI-Design-Group-Project/
 16. Any deployment issues and how they were resolved
----
+At first, the page just did not want to function at all when deployed, however moving it all to the root folder and adding more dollar signs with the word base seemed to fix all our troubles
 
 🔄 Reflections & Next Steps
 17. What went well in the project
