@@ -2,7 +2,7 @@
 1. Name of the website
 - D.E.T. Merch 
 2. Purpose: What problem does it solve or what user need does it address?
-- The purpouse of this website is to find new alternative Merch for people who wish to express themselves.
+- The purpose of this website is to find new alternative Merch for people who wish to express themselves.
 3. Audience: Who is it for?
 - For users who enjoy wearing alternative clothing pieces.
 4. Live Site: https://david-hajek.github.io/Web-UI-Design-Group-Project/
@@ -38,10 +38,10 @@ Grid becomes single collumn when acessed from mobile, Good contrast on the dark 
         The biggest challenge was to get the javascript to be read by html and then used, as I had to structure it, so that I can easily add in and export items, the problem was then solved and properly linked, making it easy to add new items, expanding the already existing grid.
         I learned how to properly use the (if) function of swelte, while also using item arrays to read data from them.
 
- Name (GitHub Username):
-        Main contributions (pages or components)
-        Challenges faced and how they were solved
-        What was learned or improved during the process
+ Name (Tymoteusz-Walichnowski):
+        Main contributions: HTML, CSS, JS for shopping cart functionality including the cart tab & cart storage.
+        Challenges faced and how they were solved: Struggled with properly implementing cart storage to the product page, solved by taking a step back and learning how to properly create a svelte store and linking it to a page. Struggled with understanding CSS styling but solved by using the inspect element to gather better visuals on how the page was laid out
+        What was learned or improved during the process: I learned a lot about Svelte functionalities such as Svelte stores and how to link certain parts of a web page together. My knowledge on creating effective and visually appealing website layouts was also improved from studying the code of my team members. 
 
  Name (GitHub Username):
         Main contributions (pages or components)
