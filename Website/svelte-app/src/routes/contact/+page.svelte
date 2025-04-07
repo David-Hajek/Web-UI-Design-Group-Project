@@ -3,12 +3,13 @@
     import { goto } from "$app/navigation";
     import { reveal } from 'svelte-reveal';
     import { fade, slide} from 'svelte/transition';
+    import { base } from '$app/paths';
 
     onMount(() =>{
         console.log("Contacts loaded");
     });
     function goBack() {
-    goto('/');
+    goto(`${base}/`);
     }
 
     let status = ""; // Keeps track of the form status

@@ -2,10 +2,11 @@
 	import { goto } from "$app/navigation";
   import { products } from '$lib';
   import { reveal } from 'svelte-reveal';
+  import { base } from "$app/paths";
     
     // Navigation function to product detail page
     function navigateToProduct(id) {
-        goto(`/product/${id}`);
+        goto(`${base}/product/${id}`);
     }
 
     let chosenCategory = "all";

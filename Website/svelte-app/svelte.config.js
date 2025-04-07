@@ -1,19 +1,16 @@
 import adapter from '@sveltejs/adapter-static';
 
+// used to determine if we are using npm run dev
+const dev = process.env.NODE_ENV === 'development';
+const repoName = 'Web-UI-Design-Group-Project'; // 👈 Replace with your repo name!
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-			// default options are shown
-			pages: 'build',
-			assets: 'build',
-			fallback: 'index.html',
-			precompress: false,
-			strict: true
-		}),
+		adapter: adapter(),
 		paths: {
-			base: '/Web-UI-Design-Group-Project'
-		}
+			base: dev ? '' : `/${repoName}`
+		},
 	}
 };
 

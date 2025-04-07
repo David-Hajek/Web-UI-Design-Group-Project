@@ -5,6 +5,7 @@
   import { cart, removeFromCart, decreaseItemQuantity, increaseItemQuantity, clearCart, addToCart } from '$lib';
   import { onMount } from 'svelte';
   import {reveal} from 'svelte-reveal';
+  import { base } from '$app/paths';
 
   // Get the product ID from the URL parameters
   const productId = parseInt(page.params.id);
@@ -87,8 +88,8 @@
   
   // Function to go back to the products page
   function goBack() {
-    goto('/');
-  }
+    goto(`${base}/`);
+    }
 
   // Function to handle adding to cart
   const handleAddToCart = () => {
