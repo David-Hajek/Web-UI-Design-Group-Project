@@ -1,13 +1,13 @@
 <script>
 	import { goto } from "$app/navigation";
-
+  import { base } from '$app/paths';
     // Array of products for easy maintenance
     const products = [
-        { id: 1, name: "Classic T-Shirt", price: "$29.99", image: "/images/clothing/shirt.png"},
-        { id: 2, name: "Casual T-Shirt", price: "$24.99", image: "/images/clothing/richard.webp"},
-        { id: 3, name: "Premium T-Shirt", price: "$34.99", image: "/images/clothing/dobik.jfif" },
-        { id: 4, name: "Sport T-Shirt", price: "$27.99", image: "/images/clothing/pavel.jfif" },
-        { id: 5, name: "Vintage T-Shirt", price: "$32.99", image: "/images/clothing/pavlik.png" },
+        { id: 1, name: "Classic T-Shirt", price: "$29.99"},
+        { id: 2, name: "Casual T-Shirt", price: "$24.99"},
+        { id: 3, name: "Premium T-Shirt", price: "$34.99" },
+        { id: 4, name: "Sport T-Shirt", price: "$27.99" },
+        { id: 5, name: "Vintage T-Shirt", price: "$32.99"},
         { id: 6, name: "Modern T-Shirt", price: "$29.99" },
         { id: 7, name: "Vintage T-Shirt", price: "$32.99" },
         { id: 8, name: "Vintage T-Shirt", price: "$32.99" },
@@ -19,7 +19,7 @@
 
     // Navigation function to product detail page
     function navigateToProduct(id) {
-        goto(`/product/${id}`);
+        goto(`${base}/product/${id}`);
     }
 </script>
   
