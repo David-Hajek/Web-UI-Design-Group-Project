@@ -5,7 +5,7 @@
 - The purpouse of this website is to find new alternative Merch for people who wish to express themselves.
 3. Audience: Who is it for?
 - For users who enjoy wearing alternative clothing pieces.
-4. Live Site: ----
+4. Live Site: https://david-hajek.github.io/Web-UI-Design-Group-Project/
 
 🧠 Design Rationale
 5. Why did you choose this theme/topic?
@@ -50,9 +50,9 @@ Grid becomes single collumn when acessed from mobile, Good contrast on the dark 
 
 🚀 Deployment Notes
 15. GitHub Pages URL
-----
+- https://david-hajek.github.io/Web-UI-Design-Group-Project/
 16. Any deployment issues and how they were resolved
----
+- It was not easy to deploy this, as it was very very tedious to link everything and get it to work, but through persistance, it has eventually been done
 
 🔄 Reflections & Next Steps
 17. What went well in the project
