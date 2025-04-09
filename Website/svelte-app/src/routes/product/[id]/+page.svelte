@@ -346,6 +346,8 @@ function decreaseQuantity() {
 
   .reviews{
     text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
   .review-container{
     display: grid;
@@ -354,22 +356,32 @@ function decreaseQuantity() {
     gap: 3rem;
     padding: 2rem 5.5rem;
     margin: 0 auto;
+    max-width: 1200px;
   }
   .review-bubble{
     background-color: rgb(54, 36, 58);
     border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .review-bubble:hover {
+    transform: translateY(-5px);
   }
   .review-name{
     text-align: center;
     padding: 1rem;
+    margin-top: 0;
   }
   .review-text{
     text-align: center;
+    padding: 0 1.5rem;
+    margin-bottom: 1rem;
   }
   .stars-review{
-
-  margin: auto;
-  padding: 1rem;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 1rem;
   }
 
   .review-stars-individual{
@@ -787,6 +799,35 @@ function decreaseQuantity() {
     .actions {
       flex-direction: column;
     }
+
+    /* Customer Reviews Mobile Styling */
+    .review-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 1.5rem 2rem;
+    }
+
+    .review-stars-individual {
+      font-size: 3.5rem;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      padding: 0 1rem;
+    }
+
+    .review-name {
+      font-size: 1.2rem;
+    }
+
+    .stars-review {
+      padding: 0.75rem;
+    }
+
+    .cart-tab {
+      width: 100%;
+      right: -100%;
+    }
   }
   
   @media (max-width: 480px) {
@@ -818,6 +859,41 @@ function decreaseQuantity() {
     
     .price {
       font-size: 1.25rem;
+    }
+
+    /* Customer Reviews Mobile Styling for very small screens */
+    .review-container {
+      padding: 1rem;
+      gap: 1.5rem;
+    }
+
+    .review-stars-individual {
+      font-size: 2.5rem;
+    }
+
+    .reviews {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .review-text {
+      padding: 0 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .review-name {
+      font-size: 1rem;
+      padding: 0.75rem 0.5rem;
+    }
+
+    .stars-review {
+      padding: 0.5rem;
+    }
+
+    .cart-item-image {
+      width: 100px;
+      height: 100px;
     }
   }
 
