@@ -2,8 +2,26 @@
 	import { goto } from "$app/navigation";
   import { products } from '$lib';
   import { reveal } from 'svelte-reveal';
+
+  import { onMount } from 'svelte';
+  onMount(() => {
+    checkScreenWidth();
+    window.addEventListener("resize", checkScreenWidth); // this fixes loading error 500 
+  });
     
     // Navigation function to product detail page
+    // nav open or closed initially based on the size of the device
+    let navVisible = true;
+    function checkScreenWidth() {
+
+        if (window.innerWidth <= 900) {
+            navVisible = false; 
+        }
+        else {
+            navVisible = true; 
+        }
+    }
+    
     function navigateToProduct(id) {
         goto(`/product/${id}`);
     }
@@ -11,7 +29,6 @@
     let chosenCategory = "all";
     let searchText = "";
     let categoryDelay = 60;
-    let navVisible = true;
     
 
     function toggleNav(){
@@ -19,20 +36,7 @@
       console.log('toggled nav');
     }
 
-    // nav open or closed initially based on the size of the device
-    function checkScreenWidth() {
-        if (window.innerWidth <= 900) {
-            navVisible = false; 
-        } else {
-            navVisible = true; 
-        }
-    }
-    checkScreenWidth();
-    window.addEventListener("resize", checkScreenWidth);
-
 </script>
-<div class="align">
-
 <div class="nav-search-container">
   <div class ="nav-container" style="display: {navVisible ? 'block' : 'none'}">
   <nav>
@@ -71,7 +75,6 @@
           <!-- we can eventually replace this with an icon-->
       </button>
   </div>
-</div>
 </div>
   <main>
     
@@ -327,7 +330,6 @@
 
       .nav-container {
         order: 3;
-        display: block;
       }
 
       .mobile-icons {
