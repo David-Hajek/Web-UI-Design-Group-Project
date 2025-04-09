@@ -6,7 +6,7 @@
   import { onMount } from 'svelte';
   onMount(() => {
     checkScreenWidth();
-    window.addEventListener("resize", checkScreenWidth); // this fixes loading error 500 
+    window.addEventListener("resize", checkScreenWidth); // this fixes loading error 500
   });
     
     // Navigation function to product detail page
@@ -52,6 +52,7 @@
   </nav>
   </div>
   
+
   <div class="mobile-icons">
 
     <button class="burger-menu" on:click={() => toggleNav()} >
@@ -319,7 +320,7 @@
 
       
       .burger-menu {
-        display: inline-block;
+        display: flex;
         width: 4vh;
         order: 1;
       }
@@ -330,14 +331,6 @@
 
       .nav-container {
         order: 3;
-      }
-
-      .mobile-icons {
-        margin-right: auto;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        position: relative;
       }
 
       }
