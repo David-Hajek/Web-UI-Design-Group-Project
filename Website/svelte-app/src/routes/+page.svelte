@@ -11,37 +11,57 @@
     let chosenCategory = "all";
     let searchText = "";
     let categoryDelay = 60;
+    let navVisible = false;
+
+    function toggleNav(){
+      navVisible = !navVisible;
+      console.log('toggled nav');
+    }
 
 </script>
+
+<div class="mobile-icons">
+
+  <button class="burger-menu" on:click={() => toggleNav()} >
+    {#if !navVisible}
+    <img src="burger-bar.png" alt="burger bar" class="burger-icon">
+    {:else}
+    <img src="close-icon.png" alt="close button" class="burger-icon">
+    {/if}
+  </button>
+
+  <button class="search-icon">
+    <img src="search.png" alt="search icon">
+  </button>
+
+</div>
+
 <div class="nav-search-container">
+  <div class ="nav-container" style="display: {navVisible ? 'block' : 'none'}">
   <nav>
       <ul>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay }}><button on:click={() => chosenCategory ="all"}  >ALL</button></li> <!-- set chosenCategory based on which button is clicked -->
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*2}}><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*3 }}><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay *4 }}><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay *5 }}><button on:click={() => chosenCategory ="bottoms"}>BOTTOMS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*6 }}><button on:click={() => chosenCategory ="boots"}>BOOTS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*7 }}><button on:click={() => chosenCategory ="accessories"}>ACCESSORIES</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay }}><button on:click={() => chosenCategory = "all"}>ALL</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 2 }}><button on:click={() => chosenCategory = "shirts"}>SHIRTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 3 }}><button on:click={() => chosenCategory = "hoodies"}>HOODIES</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 4 }}><button on:click={() => chosenCategory = "sweaters"}>SWEATERS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 5 }}><button on:click={() => chosenCategory = "bottoms"}>BOTTOMS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 6 }}><button on:click={() => chosenCategory = "boots"}>BOOTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 7 }}><button on:click={() => chosenCategory = "accessories"}>ACCESSORIES</button></li>
       </ul>
   </nav>
-
+  </div>
+  
   <div class="search-container" use:reveal={{ preset: "slide", delay: categoryDelay*8}}>
-  <div class="search-container">
       <input 
           type="search" bind:value={searchText}
           placeholder="Search..."
       />
       <!--I can explain this in class for you guys if it looks confusing-->
       <button class="search-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
+          <img src="search.png" alt="search icon">
           <!-- we can eventually replace this with an icon-->
       </button>
   </div>
-</div>
 </div>
   <main>
     
@@ -190,6 +210,8 @@
     }
 
     .search-button {
+        height: 70%;
+        width: auto;
         position: absolute;
         right: 8px;
         background: none;
@@ -262,11 +284,48 @@
       border-color: rgba(0, 0, 0, 0);
       font-family: 'Unbounded', system-ui, sans-serif;
     }
+
+    .burger-menu {
+      display: none;
+    }
+
+    .search-icon {
+      display: none;
+    }
+
     /* Responsive design */
     @media (max-width: 900px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .nav-container {
+        display: none;
+      }
+      .search-container {
+        display: none;
+      }
+
+      nav ul {
+        display: inline-block;
+      }
+      .burger-menu {
+        display: inline-block;
+        width: 4vh;
+      }
+      .search-icon {
+        display: inline-block;
+        width: 4vh;
+      }
+
+      .mobile-icons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+      }
+
     }
     
     @media (max-width: 600px) {

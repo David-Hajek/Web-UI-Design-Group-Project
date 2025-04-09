@@ -51,12 +51,20 @@
     
     <style>
         h1{color: var(--text-color);}
+
+        @media (max-width: 768px) {
+        h1 {
+            font-size: 4vh;
+            }
+        }
+
+
         p{font-size: 28px;}
 
         #feedback {
         text-align: center; 
-        margin-top: 20px; 
-        font-size: 16px; 
+        margin-top: 1%; 
+        font-size: 1%; 
         color: var(--primary-color); 
         }
 
@@ -89,6 +97,12 @@
         font-family: 'Unbounded', system-ui, sans-serif;
         font-size: var(--nav-text-size);
         transition: color 0.2s ease;
+        }
+
+        @media (max-width: 768px) {
+        button {
+            font-size: 2.2vh;
+            }
         }
 
         button:hover{
