@@ -305,36 +305,55 @@
 
     /* Responsive design */
     @media (max-width: 900px) {
-      
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
+      
       .nav-container {
         display: none;
+        position: absolute;
+        top: 30%;
+        left: 0;
+        background-color: var(--backround-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 100;
       }
-
+      
       nav ul {
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0.5rem 0;
       }
-
+      
+      nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      nav ul li button {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0;
+      }
       
       .burger-menu {
         display: flex;
         width: 4vh;
-        order: 1;
+        cursor: pointer;
       }
-
-      .search-container {
-        order: 2;
+      
+      .burger-icon {
+        width: 100%;
+        height: auto;
       }
-
-      .nav-container {
-        order: 3;
-      }
-
-      }
+    }
     
+    nav ul li {
+      margin: 0;
+      flex-shrink: 0;
+    }
     @media (max-width: 600px) {
       .grid {
         grid-template-columns: 1fr;
