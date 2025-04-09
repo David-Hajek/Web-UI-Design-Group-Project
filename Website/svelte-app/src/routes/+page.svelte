@@ -11,30 +11,27 @@
     let chosenCategory = "all";
     let searchText = "";
     let categoryDelay = 60;
-    let navVisible = false;
+    let navVisible = true;
+    
 
     function toggleNav(){
       navVisible = !navVisible;
       console.log('toggled nav');
     }
 
+    // nav open or closed initially based on the size of the device
+    function checkScreenWidth() {
+        if (window.innerWidth <= 900) {
+            navVisible = false; 
+        } else {
+            navVisible = true; 
+        }
+    }
+    checkScreenWidth();
+    window.addEventListener("resize", checkScreenWidth);
+
 </script>
-
-<div class="mobile-icons">
-
-  <button class="burger-menu" on:click={() => toggleNav()} >
-    {#if !navVisible}
-    <img src="burger-bar.png" alt="burger bar" class="burger-icon">
-    {:else}
-    <img src="close-icon.png" alt="close button" class="burger-icon">
-    {/if}
-  </button>
-
-  <button class="search-icon">
-    <img src="search.png" alt="search icon">
-  </button>
-
-</div>
+<div class="align">
 
 <div class="nav-search-container">
   <div class ="nav-container" style="display: {navVisible ? 'block' : 'none'}">
@@ -51,6 +48,18 @@
   </nav>
   </div>
   
+  <div class="mobile-icons">
+
+    <button class="burger-menu" on:click={() => toggleNav()} >
+      {#if !navVisible}
+      <img src="burger-bar.png" alt="burger bar" class="burger-icon">
+      {:else}
+      <img src="close-icon.png" alt="close button" class="burger-icon">
+      {/if}
+    </button>
+  
+  </div>
+
   <div class="search-container" use:reveal={{ preset: "slide", delay: categoryDelay*8}}>
       <input 
           type="search" bind:value={searchText}
@@ -62,6 +71,7 @@
           <!-- we can eventually replace this with an icon-->
       </button>
   </div>
+</div>
 </div>
   <main>
     
@@ -289,12 +299,9 @@
       display: none;
     }
 
-    .search-icon {
-      display: none;
-    }
-
     /* Responsive design */
     @media (max-width: 900px) {
+      
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -302,31 +309,36 @@
       .nav-container {
         display: none;
       }
-      .search-container {
-        display: none;
-      }
 
       nav ul {
         display: inline-block;
       }
+
+      
       .burger-menu {
         display: inline-block;
         width: 4vh;
+        order: 1;
       }
-      .search-icon {
-        display: inline-block;
-        width: 4vh;
+
+      .search-container {
+        order: 2;
+      }
+
+      .nav-container {
+        order: 3;
+        display: block;
       }
 
       .mobile-icons {
-        display: flex;
+        margin-right: auto;
         align-items: center;
         justify-content: space-between;
         width: 100%;
         position: relative;
       }
 
-    }
+      }
     
     @media (max-width: 600px) {
       .grid {
