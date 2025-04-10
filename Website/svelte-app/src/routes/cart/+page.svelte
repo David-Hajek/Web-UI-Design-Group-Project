@@ -8,9 +8,15 @@ import { goto } from '$app/navigation';
       0
     );
 
-    function logCheckout()
+    let isCheckoutMsgVisible = false;
+
+    function checkoutPressed()
     {
       console.log("checkout button pressed")
+      isCheckoutMsgVisible = true;
+      setTimeout(() => {
+        isCheckoutMsgVisible = false;
+      }, 3000);
     }
 
     function goBack() {
@@ -22,8 +28,13 @@ import { goto } from '$app/navigation';
   
   <nav class="breadcrumbs">
     <button class="back-button" on:click={goBack}>&lt;&nbsp;&nbsp;Back to Homepage</button>
-
   </nav>
+
+  {#if isCheckoutMsgVisible}
+  <div class="checkout-popup">
+    <p>Checkout functionality is currently unavailable</p>
+  </div>
+{/if}
 
   <h1>Your Cart</h1>
   <div class="cart-page">
@@ -67,10 +78,23 @@ import { goto } from '$app/navigation';
   </div>
   <div>
    <button class="clear-cart" on:click={clearCart}>Clear Cart</button>
-   <button class="checkout-button" on:click={logCheckout}>Checkout</button>
+   <button class="checkout-button" on:click={checkoutPressed}>Checkout</button>
   </div>
 
-  <style>
+<style>
+
+.checkout-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem 2rem;
+    z-index: 2;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
 
 .quantity-selector {
     display: flex;
