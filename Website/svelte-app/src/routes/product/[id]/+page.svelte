@@ -155,7 +155,15 @@ function decreaseQuantity() {
                     <button class="quantity-button" on:click={decreaseItemQuantity(item.id)}>-</button>
                     <span class="quantity-value">{item.quantity}</span>
                     <button class="quantity-button" on:click={increaseItemQuantity(item.id)}>+</button>
-                    <button on:click={() => removeFromCart(item.id)}>X</button>
+                    <button class="remove-button"on:click={() => removeFromCart(item.id)}>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="remove-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <line x1="4" y1="7" x2="20" y2="7" />
+                      <line x1="10" y1="11" x2="10" y2="17" />
+                      <line x1="14" y1="11" x2="14" y2="17" />
+                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" fill="none"/>
+                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </svg></button>
                   </div>
               </div>
             </div>
@@ -174,9 +182,6 @@ function decreaseQuantity() {
       {/if}
       <button class="clear-cart" on:click={clearCart}>Clear Cart</button>
       <button class="view-cart" on:click={() => goto('/cart')}>View Cart</button>
-    </div>
-    <div class="cart-tab-footer">
-
     </div>
   </div>
 
@@ -346,8 +351,6 @@ function decreaseQuantity() {
 
   .reviews{
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
   }
   .review-container{
     display: grid;
@@ -356,32 +359,22 @@ function decreaseQuantity() {
     gap: 3rem;
     padding: 2rem 5.5rem;
     margin: 0 auto;
-    max-width: 1200px;
   }
   .review-bubble{
     background-color: rgb(54, 36, 58);
     border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-  .review-bubble:hover {
-    transform: translateY(-5px);
   }
   .review-name{
     text-align: center;
     padding: 1rem;
-    margin-top: 0;
   }
   .review-text{
     text-align: center;
-    padding: 0 1.5rem;
-    margin-bottom: 1rem;
   }
   .stars-review{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    padding: 1rem;
+
+  margin: auto;
+  padding: 1rem;
   }
 
   .review-stars-individual{
@@ -605,9 +598,10 @@ function decreaseQuantity() {
     border-radius: 4px;
     width: fit-content;
     border: 1px solid #e0e0e0;
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
   
-  .quantity-button {
+  .quantity-button, .remove-button {
     background: none;
     border: none;
     width: 2.5rem;
@@ -616,12 +610,22 @@ function decreaseQuantity() {
     cursor: pointer;
     color: #444;
     transition: all 0.2s ease;
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
   
-  .quantity-button:hover {
+  .quantity-button:hover{
     background-color: #e0e0e0;
   }
   
+  .remove-button:hover{
+    background-color: var(--primary-color);
+  }
+
+  .remove-button:hover .remove-icon {
+    color: white;
+    fill: currentColor;
+}
+
   .quantity-value {
     width: 2.5rem;
     text-align: center;
@@ -728,7 +732,7 @@ function decreaseQuantity() {
     border: none;
     background-color: var(--text-color);
     color: var(--background-color);
-    
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
 
   .close-cart{
@@ -768,6 +772,17 @@ function decreaseQuantity() {
   margin-left: 10px; /* Add some space between the text and the image */
 
 }
+.remove-icon{
+  color: black;
+  fill: currentcolor;
+}
+
+.remove-button:hover + .remove-icon{
+    color: white;
+    fill: currentcolor;
+    display: none;
+  }
+
 
 .cart-tab h2 {
     font-weight: 600;
@@ -798,35 +813,6 @@ function decreaseQuantity() {
     
     .actions {
       flex-direction: column;
-    }
-
-    /* Customer Reviews Mobile Styling */
-    .review-container {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      padding: 1.5rem 2rem;
-    }
-
-    .review-stars-individual {
-      font-size: 3.5rem;
-    }
-
-    .review-text {
-      font-size: 0.95rem;
-      padding: 0 1rem;
-    }
-
-    .review-name {
-      font-size: 1.2rem;
-    }
-
-    .stars-review {
-      padding: 0.75rem;
-    }
-
-    .cart-tab {
-      width: 100%;
-      right: -100%;
     }
   }
   
@@ -859,41 +845,6 @@ function decreaseQuantity() {
     
     .price {
       font-size: 1.25rem;
-    }
-
-    /* Customer Reviews Mobile Styling for very small screens */
-    .review-container {
-      padding: 1rem;
-      gap: 1.5rem;
-    }
-
-    .review-stars-individual {
-      font-size: 2.5rem;
-    }
-
-    .reviews {
-      font-size: 1.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .review-text {
-      padding: 0 0.75rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .review-name {
-      font-size: 1rem;
-      padding: 0.75rem 0.5rem;
-    }
-
-    .stars-review {
-      padding: 0.5rem;
-    }
-
-    .cart-item-image {
-      width: 100px;
-      height: 100px;
     }
   }
 

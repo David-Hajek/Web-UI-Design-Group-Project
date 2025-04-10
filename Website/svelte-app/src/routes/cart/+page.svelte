@@ -1,13 +1,30 @@
 <script>
 import { cart, decreaseItemQuantity, increaseItemQuantity, removeFromCart, clearCart } from '$lib';
-  
+import { goto } from '$app/navigation';
+
     // Reactive total calculation
     $: total = $cart.reduce(
       (sum, item) => sum + item.quantity * parseFloat(item.price.replace("$", "")),
       0
     );
+
+    function logCheckout()
+    {
+      console.log("checkout button pressed")
+    }
+
+    function goBack() {
+    goto('/');
+  }
+
+
   </script>
   
+  <nav class="breadcrumbs">
+    <button class="back-button" on:click={goBack}>&lt;&nbsp;&nbsp;Back to Homepage</button>
+
+  </nav>
+
   <h1>Your Cart</h1>
   <div class="cart-page">
     {#if $cart.length > 0}
@@ -17,12 +34,20 @@ import { cart, decreaseItemQuantity, increaseItemQuantity, removeFromCart, clear
             <p>{item.name} x {item.quantity} - ${(item.quantity * parseFloat(item.price.replace("$", ""))).toFixed(2)}</p>
             <div>
               <h4>Quantity:</h4>
-                <div class="quantity-selector">
-                  <button class="quantity-button" on:click={decreaseItemQuantity(item.id)}>-</button>
-                  <span class="quantity-value">{item.quantity}</span>
-                  <button class="quantity-button" on:click={increaseItemQuantity(item.id)}>+</button>
-                  <button on:click={() => removeFromCart(item.id)}>X</button>
-                </div>
+              <div class="quantity-selector">
+                <button class="quantity-button" on:click={decreaseItemQuantity(item.id)}>-</button>
+                <span class="quantity-value">{item.quantity}</span>
+                <button class="quantity-button" on:click={increaseItemQuantity(item.id)}>+</button>
+                <button class="remove-button"on:click={() => removeFromCart(item.id)}>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="remove-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <line x1="4" y1="7" x2="20" y2="7" />
+                  <line x1="10" y1="11" x2="10" y2="17" />
+                  <line x1="14" y1="11" x2="14" y2="17" />
+                  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" fill="none"/>
+                  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                </svg></button>
+              </div>
             </div>
           </div>
           <div>
@@ -38,11 +63,59 @@ import { cart, decreaseItemQuantity, increaseItemQuantity, removeFromCart, clear
     {:else}
       <p>Your cart is empty.</p>
     {/if}
-    <button class="clear-cart" on:click={clearCart}>Clear Cart</button>
+
+  </div>
+  <div>
+   <button class="clear-cart" on:click={clearCart}>Clear Cart</button>
+   <button class="checkout-button" on:click={logCheckout}>Checkout</button>
   </div>
 
   <style>
 
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    width: fit-content;
+    border: 1px solid #e0e0e0;
+    font-family: 'Unbounded', system-ui, sans-serif;
+    margin-left: 1.25rem;
+  }
+  
+  .quantity-button, .remove-button {
+    background: none;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #444;
+    transition: all 0.2s ease;
+    font-family: 'Unbounded', system-ui, sans-serif;
+  }
+  
+  .quantity-button:hover{
+    background-color: #e0e0e0;
+  }
+  
+  .remove-button:hover{
+    background-color: var(--primary-color);
+  }
+
+  .remove-button:hover .remove-icon {
+    color: white;
+    fill: currentColor;
+}
+
+  .quantity-value {
+    width: 2.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--backround-color);
+  }
+  
   .cart-page {
   color:#000;
   background-color: white;
@@ -61,8 +134,16 @@ import { cart, decreaseItemQuantity, increaseItemQuantity, removeFromCart, clear
   overflow-y: auto; 
   padding: 1rem; 
 }
+.cart-page p {
+  margin-left: 1.75rem;
+}
 
-  .view-cart, .close-cart, .clear-cart {
+.cart-page h4 {
+  margin-left: 2.5rem;
+}
+
+  .clear-cart, .checkout-button {
+    margin-top: 0.5rem;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     font-size: 0.95rem;
@@ -71,16 +152,13 @@ import { cart, decreaseItemQuantity, increaseItemQuantity, removeFromCart, clear
     transition: all 0.2s ease;
     border: none;
     background-color: var(--text-color);
-    color: var(--background-color);
-    
-  }
-
-  .close-cart{
-    float: right;
+    color: var(black);
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
   
-  .view-cart:hover, .close-cart:hover, .clear-cart:hover{
+  .clear-cart:hover, .checkout-button:hover{
     background-color: var(--primary-color);
+    color: white;
   }
 
   .cart-item {
@@ -113,6 +191,7 @@ import { cart, decreaseItemQuantity, increaseItemQuantity, removeFromCart, clear
 
 }
 
+
 .cart-tab h2 {
     font-weight: 600;
     margin-left: 2rem;
@@ -124,4 +203,34 @@ import { cart, decreaseItemQuantity, increaseItemQuantity, removeFromCart, clear
     margin-left: 1rem;
 }
 
+.back-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: var(--nav-text-size);
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+    font-family: var(--font-family);
+
+  }
+  
+  .back-button:hover {
+    color: var(--primary-color);
+  }
+
+  .breadcrumb-path {
+    font-size: var(--nav-text-size);
+    color: var(--text-color);
+  }
+
+  .breadcrumbs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: solid var(--text-color);
+    border-bottom-width: var(--line-width);
+    padding-bottom: 1rem;
+  }
   </style>
