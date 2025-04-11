@@ -50,6 +50,7 @@ Elisabeth Sykorova (elisabeth-sykorova):
 - Main contributions: Category filter, search filter, visual cohesiveness, contact & about pages, main page item hover effect, adding content to page, main page nav, contact, about us mobile responsiveness
 - The biggest challenge was understanding how html, css & javascript work together and how to work with them compared to working with something like C++.
 - I have gone from almost no knowledge of web development to being able to confidently code and understand pages, transitions and different elements, and effectively use helpful tools. I have most improved in the usage of variables, forms, effects and transitions.
+KNOWN BUGS: After submitting the contact form, a confirmation message should appear. This used to work, however, in the final deployed version, it does not show up.
 
 🚀 Deployment Notes
 15. GitHub Pages URL
