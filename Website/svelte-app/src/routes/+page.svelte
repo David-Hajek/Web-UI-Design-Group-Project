@@ -339,7 +339,7 @@
       nav ul li button {
         width: 100%;
         padding: 1rem;
-        border-radius: 0;
+        border-radius: 10;
       }
       
       .burger-menu {

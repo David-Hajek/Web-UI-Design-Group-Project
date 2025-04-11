@@ -102,7 +102,7 @@
 
         @media (max-width: 768px) {
         button {
-            font-size: 2.2vh;
+            font-size: 2vh;
             }
         }
 

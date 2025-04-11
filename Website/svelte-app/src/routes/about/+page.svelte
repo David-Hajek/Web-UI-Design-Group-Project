@@ -57,16 +57,15 @@
         font-size: var(--nav-text-size);
         }
 
-        @media (max-width: 768px) {
-        button {
-            font-size: 2.2vh;
-            }
-        }
-
         button:hover{
         color: var(--primary-color);
         cursor: pointer;
-        font-size: var(--nav-text-size);
+        }
+
+        @media (max-width: 768px) {
+        button {
+            font-size: 2vh;
+            }
         }
 
         .content{
