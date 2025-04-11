@@ -23,7 +23,7 @@
 9. Highlight dynamic or interactive elements 
 - Searching, Filters (tags), Item galleries, Hover effects, Contact form, Adding to cart, Cart page
 10. Note responsiveness and accessibility efforts (e.g. mobile layout, alt text, colour contrast)
-Grid becomes single collumn when acessed from mobile, Good contrast on the dark background, Alternative text for the product images
+Grid becomes single column when acessed from mobile, Good contrast on the dark background, Alternative text for the product images, Cart tab buttons fit to screen when accessed from mobile
 
 🛠️ Technologies Used
 11. Svelte.js
@@ -45,6 +45,8 @@ Tymoteusz Walichnowski (Tymoteusz-Walichnowski):
 - Main contributions: HTML, CSS, JS for shopping cart functionality including the cart tab & cart storage.
 - Challenges faced and how they were solved: Struggled with properly implementing cart storage to the product page, solved by taking a step back and learning how to properly create a svelte store and linking it to a page. Struggled with understanding CSS styling but solved by using the inspect element to gather better visuals on how the page was laid out
 - What was learned or improved during the process: I learned a lot about Svelte functionalities such as Svelte stores and how to link certain parts of a web page together. My knowledge on creating effective and visually appealing website layouts was also improved from studying the code of my team members. 
+
+KNOWN BUGS: The cart tab buttons do not truncate into a single screen when accessed from mobile, this was working on my home PC while testing but does not work on the college computers
 
 Elisabeth Sykorova (elisabeth-sykorova):
 - Main contributions: Category filter, search filter, visual cohesiveness, contact & about pages, main page item hover effect, adding content to page, main page nav, contact, about us mobile responsiveness
