@@ -47,7 +47,7 @@ Tymoteusz Walichnowski (Tymoteusz-Walichnowski):
 - What was learned or improved during the process: I learned a lot about Svelte functionalities such as Svelte stores and how to link certain parts of a web page together. My knowledge on creating effective and visually appealing website layouts was also improved from studying the code of my team members. 
 
 Elisabeth Sykorova (elisabeth-sykorova):
-- Main contributions: Category filter, search filter, visual cohesiveness, contact & about pages, main page item hover effect
+- Main contributions: Category filter, search filter, visual cohesiveness, contact & about pages, main page item hover effect, adding content to page, main page nav, contact, about us mobile responsiveness
 - The biggest challenge was understanding how html, css & javascript work together and how to work with them compared to working with something like C++.
 - I have gone from almost no knowledge of web development to being able to confidently code and understand pages, transitions and different elements, and effectively use helpful tools. I have most improved in the usage of variables, forms, effects and transitions.
 
