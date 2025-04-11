@@ -1,6 +1,7 @@
 <script>
 import { cart, decreaseItemQuantity, increaseItemQuantity, removeFromCart, clearCart } from '$lib';
 import { goto } from '$app/navigation';
+import { base } from "$app/paths";
 
     // Reactive total calculation
     $: total = $cart.reduce(
@@ -20,7 +21,7 @@ import { goto } from '$app/navigation';
     }
 
     function goBack() {
-    goto('/');
+    goto(`${base}/`);
   }
 
 
@@ -256,5 +257,11 @@ import { goto } from '$app/navigation';
     border-bottom: solid var(--text-color);
     border-bottom-width: var(--line-width);
     padding-bottom: 1rem;
+  }
+  @media (max-width: 768px) {
+
+    .back-button {
+      font-size: 2vh;
+    }
   }
   </style>
