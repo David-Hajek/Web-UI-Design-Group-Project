@@ -182,7 +182,7 @@ function decreaseQuantity() {
         <p>Your cart is empty.</p>
       {/if}
       <button class="clear-cart" on:click={clearCart}>Clear Cart</button>
-      <button class="view-cart" on:click={() => goto('/cart')}>View Cart</button>
+      <button class="view-cart" on:click={() => goto(`${base}/cart`)}>View Cart</button>
     </div>
   </div>
 
