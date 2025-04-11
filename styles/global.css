@@ -1,0 +1,47 @@
+/*GLOBAL CSS STYLES WITH VARIABLES*/
+
+:root {
+    --primary-color: #ca3bff;
+    --lighter-primary-color: #d76aff;
+    --secondary-color: #c0c0c0; 
+    --backround-color: #1d1d1d;
+    --text-color: #eeeeee; 
+
+    --font-family: 'Unbounded', system-ui, sans-serif;
+    --base-font-size: 18px;
+    --nav-text-size: 16px;
+    --line-width: 2px;
+}
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: var(--font-family);
+    font-size: var(--base-font-size);
+    color: var(--text-color);
+    background-color: var(--backround-color);
+    line-height: 1.5;
+    border-width: var(--line-size);
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+}
+a{
+    color:var(--text-color);
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+.container{
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-medium);
+}
