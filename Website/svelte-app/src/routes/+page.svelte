@@ -65,7 +65,7 @@
   
   </div>
 
-  <div class="search-container" use:reveal={{ preset: "slide", delay: categoryDelay*8}}>
+  <div class="search-container" use:reveal={{ preset: "slide", delay: categoryDelay*8, threshold: 0.01  }}>
       <input 
           type="search" bind:value={searchText}
           placeholder="Search..."
@@ -81,7 +81,7 @@
     
     <h1>{chosenCategory.toUpperCase()}</h1> <!--use:reveal={{ preset: "slide" }}-->
     
-    <div class="grid" use:reveal={{ preset: "slide", threshold: 0.1}}>
+    <div class="grid" use:reveal={{ preset: "slide", threshold: 0.001}}>
       <!-- Use {#each} to iterate through products -->
       {#each products as product}
         {#each product.category as category} <!-- go through the list of categories for each item, and if the category is equal to the one that has been selected, show those items -->
@@ -316,6 +316,7 @@
         left: 0;
         background-color: var(--backround-color);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 50px;
         z-index: 100;
       }
       
