@@ -156,7 +156,15 @@ function decreaseQuantity() {
                     <button class="quantity-button" on:click={decreaseItemQuantity(item.id)}>-</button>
                     <span class="quantity-value">{item.quantity}</span>
                     <button class="quantity-button" on:click={increaseItemQuantity(item.id)}>+</button>
-                    <button on:click={() => removeFromCart(item.id)}>X</button>
+                    <button class="remove-button"on:click={() => removeFromCart(item.id)}>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="remove-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <line x1="4" y1="7" x2="20" y2="7" />
+                      <line x1="10" y1="11" x2="10" y2="17" />
+                      <line x1="14" y1="11" x2="14" y2="17" />
+                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" fill="none"/>
+                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </svg></button>
                   </div>
               </div>
             </div>
@@ -175,9 +183,6 @@ function decreaseQuantity() {
       {/if}
       <button class="clear-cart" on:click={clearCart}>Clear Cart</button>
       <button class="view-cart" on:click={() => goto('/cart')}>View Cart</button>
-    </div>
-    <div class="cart-tab-footer">
-
     </div>
   </div>
 
@@ -594,9 +599,10 @@ function decreaseQuantity() {
     border-radius: 4px;
     width: fit-content;
     border: 1px solid #e0e0e0;
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
   
-  .quantity-button {
+  .quantity-button, .remove-button {
     background: none;
     border: none;
     width: 2.5rem;
@@ -605,12 +611,22 @@ function decreaseQuantity() {
     cursor: pointer;
     color: #444;
     transition: all 0.2s ease;
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
   
-  .quantity-button:hover {
+  .quantity-button:hover{
     background-color: #e0e0e0;
   }
   
+  .remove-button:hover{
+    background-color: var(--primary-color);
+  }
+
+  .remove-button:hover .remove-icon {
+    color: white;
+    fill: currentColor;
+}
+
   .quantity-value {
     width: 2.5rem;
     text-align: center;
@@ -717,7 +733,7 @@ function decreaseQuantity() {
     border: none;
     background-color: var(--text-color);
     color: var(--background-color);
-    
+    font-family: 'Unbounded', system-ui, sans-serif;
   }
 
   .close-cart{
@@ -757,6 +773,17 @@ function decreaseQuantity() {
   margin-left: 10px; /* Add some space between the text and the image */
 
 }
+.remove-icon{
+  color: black;
+  fill: currentcolor;
+}
+
+.remove-button:hover + .remove-icon{
+    color: white;
+    fill: currentcolor;
+    display: none;
+  }
+
 
 .cart-tab h2 {
     font-weight: 600;
@@ -768,6 +795,7 @@ function decreaseQuantity() {
     font-weight: 600;
     margin-left: 1rem;
 }
+
   /* Responsive Design */
   @media (max-width: 768px) {
     .product-content {
@@ -788,7 +816,66 @@ function decreaseQuantity() {
     .actions {
       flex-direction: column;
     }
+
+    /* Cart for mobile */
+
+    .cart-tab {
+    width: 100%; 
+    right: -100%; 
+    }
+
+    .cart-tab.open {
+      right: 0; 
+    }
+
+    .cart-item {
+      flex-direction: column; 
+      align-items: flex-start; 
+    }
+
+    .cart-item p {
+      margin: 0.5rem 0; 
+    }
+
+    .cart-item-image {
+      width: 100px; 
+      height: 100px;
+      margin: 0;
+    }
+
+    .quantity-selector {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .quantity-button, .remove-button {
+      width: 2rem;
+      height: 2rem;
+      font-size: 1rem;
+    }
+
+    .view-cart, .clear-cart {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    .cart-tab h2 {
+      font-size: 1.5rem;
+      margin: 1rem;
+    }
+
+    .cart-tab h4 {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .cart-divider-line {
+      margin: 5px 0;
+    }
   }
+  
   
   @media (max-width: 480px) {
     .product-detail-container {
@@ -821,5 +908,7 @@ function decreaseQuantity() {
       font-size: 1.25rem;
     }
   }
+
+
 
 </style>

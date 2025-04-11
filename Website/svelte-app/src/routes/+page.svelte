@@ -2,9 +2,29 @@
 	import { goto } from "$app/navigation";
   import { products } from '$lib';
   import { reveal } from 'svelte-reveal';
+
   import { base } from "$app/paths";
+
+  import { onMount } from 'svelte';
+  onMount(() => {
+    checkScreenWidth();
+    window.addEventListener("resize", checkScreenWidth); // this fixes loading error 500
+  });
+
     
     // Navigation function to product detail page
+    // nav open or closed initially based on the size of the device
+    let navVisible = true;
+    function checkScreenWidth() {
+
+        if (window.innerWidth <= 900) {
+            navVisible = false; 
+        }
+        else {
+            navVisible = true; 
+        }
+    }
+    
     function navigateToProduct(id) {
         goto(`${base}/product/${id}`);
     }
@@ -12,43 +32,59 @@
     let chosenCategory = "all";
     let searchText = "";
     let categoryDelay = 60;
+    
+
+    function toggleNav(){
+      navVisible = !navVisible;
+      console.log('toggled nav');
+    }
 
 </script>
 <div class="nav-search-container">
+  <div class ="nav-container" style="display: {navVisible ? 'block' : 'none'}">
   <nav>
       <ul>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay }}><button on:click={() => chosenCategory ="all"}  >ALL</button></li> <!-- set chosenCategory based on which button is clicked -->
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*2}}><button on:click={() => chosenCategory ="shirts"}>SHIRTS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*3 }}><button on:click={() => chosenCategory ="hoodies"}>HOODIES</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay *4 }}><button on:click={() => chosenCategory ="sweaters"}>SWEATERS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay *5 }}><button on:click={() => chosenCategory ="bottoms"}>BOTTOMS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*6 }}><button on:click={() => chosenCategory ="boots"}>BOOTS</button></li>
-          <li use:reveal={{ preset: "slide", delay: categoryDelay*7 }}><button on:click={() => chosenCategory ="accessories"}>ACCESSORIES</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay }}><button on:click={() => chosenCategory = "all"}>ALL</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 2 }}><button on:click={() => chosenCategory = "shirts"}>SHIRTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 3 }}><button on:click={() => chosenCategory = "hoodies"}>HOODIES</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 4 }}><button on:click={() => chosenCategory = "sweaters"}>SWEATERS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 5 }}><button on:click={() => chosenCategory = "bottoms"}>BOTTOMS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 6 }}><button on:click={() => chosenCategory = "boots"}>BOOTS</button></li>
+          <li use:reveal={{ preset: "slide", delay: categoryDelay * 7 }}><button on:click={() => chosenCategory = "accessories"}>ACCESSORIES</button></li>
       </ul>
   </nav>
+  </div>
+  
 
-  <div class="search-container" use:reveal={{ preset: "slide", delay: categoryDelay*8}}>
-  <div class="search-container">
+  <div class="mobile-icons">
+
+    <button class="burger-menu" on:click={() => toggleNav()} >
+      {#if !navVisible}
+      <img src="burger-bar.png" alt="burger bar" class="burger-icon">
+      {:else}
+      <img src="close-icon.png" alt="close button" class="burger-icon">
+      {/if}
+    </button>
+  
+  </div>
+
+  <div class="search-container" use:reveal={{ preset: "slide", delay: categoryDelay*8, threshold: 0.01  }}>
       <input 
           type="search" bind:value={searchText}
           placeholder="Search..."
       />
       <!--I can explain this in class for you guys if it looks confusing-->
       <button class="search-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
+          <img src="search.png" alt="search icon">
           <!-- we can eventually replace this with an icon-->
       </button>
   </div>
-</div>
 </div>
   <main>
     
     <h1>{chosenCategory.toUpperCase()}</h1> <!--use:reveal={{ preset: "slide" }}-->
     
-    <div class="grid" use:reveal={{ preset: "slide", threshold: 0.1}}>
+    <div class="grid" use:reveal={{ preset: "slide", threshold: 0.001}}>
       <!-- Use {#each} to iterate through products -->
       {#each products as product}
         {#each product.category as category} <!-- go through the list of categories for each item, and if the category is equal to the one that has been selected, show those items -->
@@ -191,6 +227,8 @@
     }
 
     .search-button {
+        height: 70%;
+        width: auto;
         position: absolute;
         right: 8px;
         background: none;
@@ -263,13 +301,63 @@
       border-color: rgba(0, 0, 0, 0);
       font-family: 'Unbounded', system-ui, sans-serif;
     }
+
+    .burger-menu {
+      display: none;
+    }
+
     /* Responsive design */
     @media (max-width: 900px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      
+      .nav-container {
+        display: none;
+        position: absolute;
+        top: 30%;
+        left: 0;
+        background-color: var(--backround-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 50px;
+        z-index: 100;
+      }
+      
+      nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0.5rem 0;
+      }
+      
+      nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      nav ul li button {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0;
+      }
+      
+      .burger-menu {
+        display: flex;
+        width: 4vh;
+        cursor: pointer;
+      }
+      
+      .burger-icon {
+        width: 100%;
+        height: auto;
+      }
     }
     
+    nav ul li {
+      margin: 0;
+      flex-shrink: 0;
+    }
     @media (max-width: 600px) {
       .grid {
         grid-template-columns: 1fr;

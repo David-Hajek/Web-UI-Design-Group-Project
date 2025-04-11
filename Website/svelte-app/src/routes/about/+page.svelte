@@ -35,13 +35,19 @@
     
     <style>
         h1{color: var(--text-color);}
-        p{font-size: 18px;
-        width: 30%;
+        p{font-size: 1.75vh;
+        margin-left: 30%;
+        margin-right: 30%;
         align-content: left;
         text-align: left;
-        margin-left: auto;
-        margin-right: auto;
         margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+        p {
+           margin-left: auto;
+           margin-right: auto; 
+        }
         }
         button{
         background-color: rgba(0, 0, 0, 0); /*transparency*/
@@ -49,6 +55,12 @@
         color: var(--text-color);
         font-family: 'Unbounded', system-ui, sans-serif;
         font-size: var(--nav-text-size);
+        }
+
+        @media (max-width: 768px) {
+        button {
+            font-size: 2.2vh;
+            }
         }
 
         button:hover{
