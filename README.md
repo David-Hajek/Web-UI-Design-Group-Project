@@ -31,15 +31,17 @@ Grid becomes single column when acessed from mobile, Good contrast on the dark b
 12. HTML/CSS/JS
 - JS. To store our products, a combination of js, html and css all around the webpage.
 13. Other tools (Figma, GitHub, etc.)
-- Github, Figma, Penpot
+- Github, Figma, Penpot, Warp, Github Copilot
 
 👥 Team Contributions
 14. Each member should write a short reflection:
 
 David Hajek (David-Hajek):
-- Main contributions: JS. for the item storage, Main item grid, Navigation bar at the top, structure of the homepage, Item page, Random reviews, 
+- Main contributions: JS. for the item storage, Main item grid, Navigation bar at the top, structure of the homepage, Item page, Random reviews, CSS support :)
 - The biggest challenge was to get the javascript to be read by html and then used, as I had to structure it, so that I can easily add in and export items, the problem was then solved and properly linked, making it easy to add new items, expanding the already existing grid.
 - I learned how to properly use the (if) function of swelte, while also using item arrays to read data from them.
+
+KNOWN BUGS: In very rare cases, the mobile version of our page, hides our items unless the user scrolls a tiny bit lower, altho this bug is very rare. 
 
 Tymoteusz Walichnowski (Tymoteusz-Walichnowski):
 - Main contributions: HTML, CSS, JS for shopping cart functionality including the cart tab & cart storage.
@@ -63,5 +65,8 @@ At first, the page just did not want to function at all when deployed, however m
 
 🔄 Reflections & Next Steps
 17. What went well in the project
+- The overall pace at which we worked, we did not really get stuck on one thing, as we all worked on our own thing, we rarely had to wait for X to be done. We worked as one, as we did not really have any disagreements in the project, making it a breeze.
 18. What could be improved
+- The Cart can be a bit odd when on mobile phone, overall we did pretty well on implementing the features.
 19. One suggestion for future development
+- Making cart, Form, etc. Actually functioning, if this would be a proper merch website. 
